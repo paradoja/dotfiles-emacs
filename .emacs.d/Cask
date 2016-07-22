@@ -1,0 +1,88 @@
+(source gnu)
+(source melpa)
+(source marmalade)
+
+;;; Programming tools
+(depends-on "haml-mode")
+(depends-on "sass-mode")
+(depends-on "scss-mode")
+(depends-on "yaml-mode")
+
+;;;; Cypher
+(depends-on "cypher-mode")
+
+;;;; Docker
+(depends-on "docker")
+(depends-on "dockerfile-mode")
+
+;;;; GLSL
+(depends-on "glsl-mode")
+
+;;;; Go
+(depends-on "go-mode")
+
+;;;; Io
+(depends-on "io-mode")
+(depends-on "io-mode-inf")
+
+;;;; JS
+(depends-on "js2-mode")
+
+;;;; Puppet
+(depends-on "puppet-mode")
+
+;;;; R
+(depends-on "ess")
+
+;;;; Ruby
+(depends-on "ruby-mode")
+(depends-on "ruby-electric")
+(depends-on "inf-ruby")
+(depends-on "ruby-tools")
+(depends-on "robe")
+(depends-on "ruby-hash-syntax")
+
+;;;; Rust
+(depends-on "rust-mode")
+(depends-on "flycheck-rust")
+
+;;;; Scheme
+(depends-on "geiser")
+
+;;; General editing, programming and project tools
+(depends-on "perspective")
+(depends-on "projectile")
+(depends-on "highlight-indentation")
+(depends-on "ag")
+(depends-on "wgrep")
+(depends-on "wgrep-ack")
+(depends-on "wgrep-ag")
+(depends-on "markdown-mode")
+(depends-on "feature-mode")
+(depends-on "restclient")
+(depends-on "dired-filter")
+(depends-on "dired-subtree")
+(depends-on "dired-ranger")
+(depends-on "dired-narrow")
+(depends-on "direx")
+(depends-on "git-link")
+
+;; General emacs tools
+(depends-on "evil")
+(depends-on "w3")
+(depends-on "expand-region")
+(depends-on "ecb")
+(depends-on "tabulated-list")
+(depends-on "twittering-mode")
+(depends-on "w3m")
+(depends-on "git-gutter")
+(depends-on "hydra")
+(depends-on "browse-kill-ring")
+(depends-on "discover-my-major")
+
+;; Libraries
+(depends-on "f")    ; Directory and file api
+(depends-on "dash") ; Modern list library
+
+;; Extra
+(depends-on "zone-nyan") ; Nyan cat zone

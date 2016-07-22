@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: gs
+# key: gs
+# --
+public ${1:Class} get${2:Attribute}() {
+    return ${2:$(replace-regexp-in-string "^." #'downcase yas-text t)};
+}
+
+public void set$2($1 ${2:$(replace-regexp-in-string "^." #'downcase yas-text t)}) {
+    this.${2:$(replace-regexp-in-string "^." #'downcase yas-text t)} = ${2:$(replace-regexp-in-string "^." #'downcase yas-text t)};
+}
