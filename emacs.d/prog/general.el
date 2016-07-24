@@ -11,6 +11,9 @@
   (newline arg)
   (indent-according-to-mode))
 
+(use-package haml-mode)
+(use-package yaml-mode)
+
 ;;; Ediff
 (setq-default ediff-window-setup-function 'ediff-setup-windows-plain)
 (setq-default ediff-split-window-function 'split-window-horizontally)

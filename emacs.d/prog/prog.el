@@ -3,18 +3,24 @@
 (load-configurations
  '(general
    c
+   clisp      ; Common Lisp
    clojure
    coffee     ; CoffeScript
-   clisp      ; Common Lisp
+   docker
    elisp
    elixir
+   go
    haskell
+   io
    java
    nasm       ; (n)ASM
+   puppet
    purescript
    python
+   r
+   racket
    ruby       ; Ruby, Rails && Co.
+   sass
    scala
    scss
-   scheme     ; Scheme && Racket
    web-mode))
