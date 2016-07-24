@@ -1,24 +1,7 @@
-Emacs configuration prepared to be used with [Homesick](https://github.com/technicalpickles/homesick).
-
-## Submodules
-
-To load git submodules run:
-
-```
-git submodule init
-git submodule update
-```
-
 ## Required programs
 
-- [Ack](http://beyondgrep.com/) is expected to be installed and in the path.
-- Alternatively [the-silver-searcher](https://github.com/ggreer/the_silver_searcher) may be used for faster searches.
-- SHM executable is needed:
-```
-cd ~/.emacs.d/prog/haskell/structured-haskell-mode
-cabal install
-```
-(cabal-install) is of course needed.
+- [the-silver-searcher](https://github.com/ggreer/the_silver_searcher) is used for fast grep
+- SHM executable is needed if SHM is to be used
 - [Ensime](https://github.com/ensime/ensime-server/wiki/Quick-Start-Guide)
 - [Eclim](http://eclim.org/install.html)
 
