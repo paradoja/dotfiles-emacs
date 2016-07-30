@@ -9,6 +9,7 @@
    docker
    elisp
    elixir
+   elm
    go
    haskell
    io
