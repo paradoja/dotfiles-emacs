@@ -13,7 +13,6 @@
    go
    haskell
    io
-   java
    javascript
    nasm       ; (n)ASM
    puppet
