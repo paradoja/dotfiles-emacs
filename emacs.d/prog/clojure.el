@@ -10,10 +10,6 @@
   (add-hook 'cider-mode-hook #'eldoc-mode))
 
 
-(use-package ac-cider)
-
-
-
 ;; ;; highlight expression on eval
 ;; (require 'highlight)
 ;; (require 'nrepl-eval-sexp-fu)

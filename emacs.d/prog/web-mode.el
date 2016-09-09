@@ -1,7 +1,11 @@
 (require 'use-package)
-(require 'auto-complete)
+(require 'company)
 
 (use-package web-mode
-  :mode "\\.tpl\\|\\.php|\\.erb|\\.htm|\\.html"
-  :init
-  (add-to-list 'ac-modes 'web-mode))
+  :mode "\\.tpl\\|\\.php|\\.erb|\\.htm|\\.html")
+
+(use-package company-web
+  :config
+  (require 'company-web-html))
+
+(use-package ac-html-csswatcher)

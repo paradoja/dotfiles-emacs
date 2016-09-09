@@ -53,8 +53,8 @@
 (use-package key-chord)
 (key-chord-mode 1)
 (setq-default truncate-lines t)
-(use-package auto-complete)
-(global-auto-complete-mode 1)
+(use-package company)
+(add-hook 'after-init-hook 'global-company-mode)
 ; Enhanced rectangle edition, global mark mode and easy register use
 (cua-selection-mode t)
 (setq-default cua-delete-selection nil)
@@ -130,7 +130,6 @@
       (list "Paredit"    ; paredit-mode
             "FlyC"       ; flycheck-mode
             "Undo-Tree"  ; undo-tree-mode
-            "AC"         ; auto-complete-mode
             "yas"        ; yas/minor-mode
             "rt"         ; ruby-tools-mode
             "REl"        ; ruby-electric-mode
