@@ -9,3 +9,4 @@ emacs.d/abbrev_defs
 emacs.d/network-security.data
 emacs.d/tramp
 emacs.d/irony
+emacs.d/custom

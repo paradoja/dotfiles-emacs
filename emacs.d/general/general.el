@@ -1,15 +1,16 @@
 (require 'use-package)
 
+;;; libraries
+(use-package f)    ; Directory and file api
+(use-package dash) ; Modern list library
+(use-package dash-functional) ; combinators
+
 ;;; Custom conf.
 (require 'f)
 (load (file-truename (f-join (f-dirname (f-this-file))
                              "config-utils")))
 (defconst custom-file (file-truename "custom"))
 (load custom-file 'noerror)
-
-;;; libraries
-(use-package f)    ; Directory and file api
-(use-package dash) ; Modern list library
 
 (use-package helm) ; TODO move to helm conf?
 (use-package projectile)
@@ -102,7 +103,7 @@
 (set-fontset-font
  t 'symbol
  (font-spec :family "Symbola") nil 'prepend) ; emojis!
-(depends-on "zone-nyan") ; Nyan cat zone
+(use-package zone-nyan) ; Nyan cat zone
 
 ;;; Advanced commands
 (put 'set-goal-column  'disabled nil); C-x C-n

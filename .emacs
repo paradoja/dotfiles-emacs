@@ -14,12 +14,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-; While I am using Cask
-(if (file-exists-p "~/.cask/cask.el")
-    (require 'cask "~/.cask/cask.el")
-  (require 'cask "/usr/local/share/emacs/site-lisp/cask.el"))
-(cask-initialize)
-
 (setq standard-emacs-dir (file-name-as-directory "~/.emacs.d/"))
 
 ;;; Cosas generales
