@@ -7,7 +7,22 @@
 (defconst custom-file (file-truename "custom"))
 (load custom-file 'noerror)
 
+;;; libraries
+(use-package f)    ; Directory and file api
+(use-package dash) ; Modern list library
+
+(use-package helm) ; TODO move to helm conf?
+(use-package projectile)
+(use-package helm-projectile)
+(use-package helm-ag)
+(use-package helm-ls-git)
+(use-package swiper-helm)
+(require 'helm-mode)
+(setq helm-completion-in-region-fuzzy-match t)
+(helm-mode 1)
+
 ;;; Cambios de configuraciones de teclas
+(use-package browse-kill-ring)
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-x\C-f" 'helm-find-files)
@@ -18,16 +33,13 @@
 (global-set-key (kbd "C-c C-o") 'helm-occur) ; tb. M-s o durante isearch
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+(define-key global-map (kbd "C-c C-s") 'swiper-helm)
 (define-key global-map (kbd "RET") 'newline-and-indent)
+(use-package discover-my-major)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
-(use-package helm) ; TODO move to helm conf?
-(use-package helm-projectile)
-(use-package helm-ag)
-(use-package helm-ls-git)
-(use-package swiper-helm)
-(require 'helm-mode)
-(setq helm-completion-in-region-fuzzy-match t)
-(helm-mode 1)
+
+(use-package evil)
+
 (use-package visual-regexp)
 (require 'visual-regexp)
 (setq vr/match-separator-string ">>")
@@ -36,12 +48,11 @@
 (define-key global-map (kbd "C-c m") 'vr/mc-mark)
 (use-package iedit)
 (define-key global-map (kbd "C-c i") 'iedit-mode)
-(define-key global-map (kbd "C-s") 'swiper-helm)
 
-;;; Servidor
+;;; Server
 (setenv "EDITOR" "/usr/bin/emacsclient")
 
-;;; Cambios específicos propios de comportamiento y edición
+;;; Behaviour and editing changes
 (require 'iso-transl)
 (setq-default indent-tabs-mode nil) ; no tabs
 (global-font-lock-mode 1)
@@ -53,8 +64,14 @@
 (use-package key-chord)
 (key-chord-mode 1)
 (setq-default truncate-lines t)
+(use-package expand-region)
+
+;; TODO: Do something ;)
+(use-package hydra)
+
 (use-package company)
 (add-hook 'after-init-hook 'global-company-mode)
+
 ; Enhanced rectangle edition, global mark mode and easy register use
 (cua-selection-mode t)
 (setq-default cua-delete-selection nil)
@@ -68,11 +85,10 @@
 (guide-key-mode 1)
 (setq set-mark-command-repeat-pop t) ; C-u C-Space C-Space... C-Space
 
-;; Automáticamente marcar como ejecutable scripts
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
-;;; Cambios visuales
+;;; Visual changes
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -86,27 +102,17 @@
 (set-fontset-font
  t 'symbol
  (font-spec :family "Symbola") nil 'prepend) ; emojis!
+(depends-on "zone-nyan") ; Nyan cat zone
 
-;;; Dired + similar
-(require 'dired-x)
-(setq dired-omit-mode t)
-(define-key dired-mode-map (kbd "C-c C-d i") 'dired-subtree-insert)
-(define-key dired-mode-map (kbd "C-c C-d C-i") 'dired-subtree-insert)
-(define-key dired-mode-map (kbd "C-c C-d -") 'dired-subtree-remove)
-(define-key dired-mode-map (kbd "C-c C-d o") 'dired-subtree-remove)
-(define-key dired-mode-map (kbd "C-c C-d C-o") 'dired-subtree-remove)
-(define-key dired-mode-map (kbd "C-c C-d x") 'direx:jump-to-directory)
-(require 'projectile)
-(define-key projectile-mode-map (kbd "C-c p x") 'direx-project:jump-to-project-root)
-
-;;; Comandos avanzados habilitados
+;;; Advanced commands
 (put 'set-goal-column  'disabled nil); C-x C-n
 (put 'narrow-to-region 'disabled nil); C-x n n
 (put 'upcase-region    'disabled nil); C-x C-u;; M-u upcases word
 (put 'downcase-region  'disabled nil); C-x C-l;; M-l downcases word
 (put 'dired-find-alternate-file 'disabled nil); dired a
+(use-package zone-nyan)
 
-;;; Uniquify, cambios en cómo mostrar los buffers http://trey-jackson.blogspot.com.es/2008/01/emacs-tip-11-uniquify.html
+;;; Uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
 (setq uniquify-separator "|")

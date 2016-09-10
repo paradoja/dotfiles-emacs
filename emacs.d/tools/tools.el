@@ -2,6 +2,7 @@
 
 (load-configurations
  '(ace-jump-mode
+   dired
    email
    eww
    flycheck
@@ -13,8 +14,9 @@
    persp-mode
    projectile
    rcirc
+   restclient
+   symon
    tiny                  ; Quickly gen. linear ranges
    twit                  ; Twittering mode
-   symon
    window-navigation     ; Window numbering and chumpy windows
    yasnippets))

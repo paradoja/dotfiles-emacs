@@ -6,3 +6,6 @@
 (defvar magit-last-seen-setup-instructions "1.4.0")
 
 (add-hook 'git-gutter:update-hooks 'magit-revert-buffer-hook)
+
+(use-package git-link)
+(use-package git-gutter)

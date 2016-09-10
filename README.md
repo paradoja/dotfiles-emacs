@@ -1,9 +1,28 @@
 ## Required programs
 
 - [the-silver-searcher](https://github.com/ggreer/the_silver_searcher) is used for fast grep
+
+### Programming languages
+
+#### Haskell
 - SHM executable is needed if SHM is to be used
+
+#### Scala
 - [Ensime](https://github.com/ensime/ensime-server/wiki/Quick-Start-Guide)
-- [Eclim](http://eclim.org/install.html)
+
+#### C/C++
+- [Irony](https://github.com/Sarcasm/irony-mode) requires CMake and Clang
+
+#### Rust
+- [Racer](https://github.com/phildawes/racer)
+
+#### Python
+
+```bash
+pip install jedi flake8 importmagic autopep8 pyflakes
+```
+Make sure that `pyflake` is in the path.
+
 
 ## Other requirements
 
@@ -23,10 +42,3 @@ the following or similar is needed:
 (setq hipchat-auto-join                       '("room1" "room2"))
 (setq hipchat-password                        "...")
 ```
-
-If `elpy` is going to be run, this is needed:
-
-```bash
-pip install jedi flake8 importmagic autopep8 pyflakes
-```
-Make sure that `pyflake` is in the path.

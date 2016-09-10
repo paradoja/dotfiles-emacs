@@ -13,6 +13,14 @@
 
 (use-package haml-mode)
 (use-package yaml-mode)
+(use-package markdown-mode)
+(use-package highlight-indentation)
+
+(use-package feature-mode)
+
+;; TODO: allow use of this + (or besides) helm
+(use-package wgrep)
+(use-package wgrep-ag)
 
 ;;; Ediff
 (setq-default ediff-window-setup-function 'ediff-setup-windows-plain)
