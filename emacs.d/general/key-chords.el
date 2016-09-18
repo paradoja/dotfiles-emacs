@@ -15,6 +15,7 @@
   (key-chord-define-global (concat key "c") 'ace-mc-add-multiple-cursors)
   (key-chord-define-global (concat key " ") 'whitespace-mode)
   (key-chord-define-global (concat key "s") 'subword-mode)
-  (key-chord-define-global (concat key "-") 'notmuch))
+  (key-chord-define-global (concat key "-") 'helm-dash)
+  (key-chord-define-global (concat key ".") 'notmuch))
 
 (mapc #'set-chords-for-key key-chord-prefixes)

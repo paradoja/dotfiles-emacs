@@ -2,6 +2,7 @@
 
 (load-configurations
  '(ace-jump-mode
+   dash
    dired
    email
    eww
