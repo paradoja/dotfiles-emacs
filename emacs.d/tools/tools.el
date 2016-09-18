@@ -11,6 +11,7 @@
    magit
    org-mode
    paredit
+   pdf
    persp-mode
    projectile
    rcirc

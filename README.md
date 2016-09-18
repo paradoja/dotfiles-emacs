@@ -2,7 +2,7 @@
 
 - [the-silver-searcher](https://github.com/ggreer/the_silver_searcher) is used for fast grep
 
-### Programming languages
+### Programming languages and tools
 
 #### Haskell
 - SHM executable is needed if SHM is to be used
@@ -23,6 +23,8 @@ pip install jedi flake8 importmagic autopep8 pyflakes
 ```
 Make sure that `pyflake` is in the path.
 
+#### PDF
+[pdf-tools](https://github.com/politza/pdf-tools) requires poppler and imagemagick
 
 ## Other requirements
 
