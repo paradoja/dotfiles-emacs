@@ -14,8 +14,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(setq standard-emacs-dir (file-name-as-directory "~/.emacs.d/"))
-
 ;;; Cosas generales
 (load-file "~/.emacs.d/general/general.el")
 
