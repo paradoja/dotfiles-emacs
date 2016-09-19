@@ -5,6 +5,7 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+; (package-refresh-contents)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
