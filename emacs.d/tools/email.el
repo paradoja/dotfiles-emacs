@@ -1,6 +1,8 @@
 (require 'use-package)
 (require 's) ; TODO: use-package it
 
+(setq mail-host-address (system-name))
+
 ;;; For downloading messages mbsync (outside emacs) is used to sync
 ;;; messages between IMAP accounts and a local Maildir directory. Then
 ;;; notmuch (also installable outside emacs) is used to index these.
