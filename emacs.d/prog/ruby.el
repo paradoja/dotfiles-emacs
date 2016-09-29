@@ -7,7 +7,9 @@
   (add-to-list 'rtog/mode-repl-alist '(ruby-mode . inf-ruby))
   :config
   (add-hook 'ruby-mode-hook
-            (lambda () (ruby-electric-mode t))))
+            (lambda () (ruby-electric-mode t)))
+  (add-hook 'ruby-mode-hook
+            (lambda () (flyspell-mode))))
 (use-package ruby-electric)
 
 (use-package rspec-mode

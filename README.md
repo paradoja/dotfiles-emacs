@@ -4,6 +4,10 @@
 
 ### Programming languages and tools
 
+#### Spell checking
+
+- For spelling checks, we need `aspell`.
+
 #### Haskell
 - SHM executable is needed if SHM is to be used
 

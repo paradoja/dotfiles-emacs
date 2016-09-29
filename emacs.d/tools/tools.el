@@ -10,6 +10,7 @@
    highlight-indentation
    hipchat
    magit
+   markdown
    org-mode
    paredit
    pdf
@@ -20,5 +21,6 @@
    symon
    tiny                  ; Quickly gen. linear ranges
    twit                  ; Twittering mode
+   spelling-check
    window-navigation     ; Window numbering and chumpy windows
    yasnippets))

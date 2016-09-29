@@ -13,7 +13,6 @@
 
 (use-package haml-mode)
 (use-package yaml-mode)
-(use-package markdown-mode)
 (use-package highlight-indentation)
 
 (use-package feature-mode)
