@@ -8,9 +8,9 @@
    eww
    flycheck
    highlight-indentation
-   hipchat
    magit
    markdown
+   mc
    org-mode
    paredit
    pdf
@@ -18,9 +18,9 @@
    projectile
    rcirc
    restclient
+   spelling-check
    symon
    tiny                  ; Quickly gen. linear ranges
    twit                  ; Twittering mode
-   spelling-check
    window-navigation     ; Window numbering and chumpy windows
    yasnippets))

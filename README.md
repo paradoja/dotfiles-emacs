@@ -37,14 +37,3 @@ the following or similar is needed:
 ```lisp
 (setq rcirc-authinfo '(("server" nickserv "nick" "password")))
 ```
-
-`~/.hipchat.el` is expected to have the hipchat configuration, something similar to:
-```lisp
-(setq hipchat-number                          "...")
-(setq hipchat-nick                            "...")
-(setq hipchat-username (concat hipchat-number "..."))
-(setq hipchat-server                          "...")
-(setq hipchat-nickname                        "...")
-(setq hipchat-auto-join                       '("room1" "room2"))
-(setq hipchat-password                        "...")
-```
