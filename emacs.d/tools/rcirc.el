@@ -37,10 +37,9 @@
       '(("\\.freenode\\.net$" )
         ("\\.hispano\\.org")))
 
-;; Sitio con la información de conexión de forma:
+;; File with the auth. information in the following way:
 ;; (setq rcirc-authinfo '(("sitio" nickserv "usuario" "clave")))
+;;
+;; Can also include changes to rcirc-server-alist
 (defvar rcirc-authinfo-file-name "~/.authinfo.el")
-(with-temp-buffer
-           (insert-file-contents-literally rcirc-authinfo-file-name)
-           (goto-char (point-min))
-           (eval (read (current-buffer))))
+(load-file rcirc-authinfo-file-name)
