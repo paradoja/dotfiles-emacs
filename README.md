@@ -27,6 +27,10 @@ pip install jedi flake8 importmagic autopep8 pyflakes
 ```
 Make sure that `pyflake` is in the path.
 
+#### Javascript
+
+Tern is used for flychecking.
+
 #### PDF
 [pdf-tools](https://github.com/politza/pdf-tools) requires poppler and imagemagick
 
