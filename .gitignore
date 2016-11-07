@@ -12,3 +12,4 @@ emacs.d/projectile-bookmarks.eld
 emacs.d/tramp
 emacs.d/url/cookies
 custom
+emacs.d/ensime
