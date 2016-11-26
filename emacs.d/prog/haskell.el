@@ -28,5 +28,8 @@
   :init
   (add-hook 'haskell-mode-hook 'intero-mode))
 
+(require 'flycheck)
+(flycheck-add-next-checker 'intero '(warning . haskell-hlint))
+
 (use-package ghci-completion)
 ;(use-package shm)
