@@ -3,7 +3,6 @@
 (use-package dired-filter)
 (use-package dired-subtree)
 (use-package dired-narrow)
-(use-package ranger)
 (use-package direx)
 
 (setq dired-omit-mode t)
