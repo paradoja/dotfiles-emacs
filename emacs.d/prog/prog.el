@@ -24,4 +24,5 @@
    sass
    scala
    scss
+   shell
    web-mode))
