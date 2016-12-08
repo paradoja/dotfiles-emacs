@@ -66,6 +66,10 @@
 (key-chord-mode 1)
 (setq-default truncate-lines t)
 (use-package expand-region)
+(use-package alert
+  :commands (alert)
+  :init
+  (setq alert-default-style 'notifications))
 
 ;; TODO: Do something ;)
 (use-package hydra)

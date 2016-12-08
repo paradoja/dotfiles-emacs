@@ -18,6 +18,7 @@
    projectile
    rcirc
    restclient
+   slack
    spelling-check
    symon
    tiny                  ; Quickly gen. linear ranges
