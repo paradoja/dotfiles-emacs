@@ -103,6 +103,7 @@
 (set-fontset-font
  t 'symbol
  (font-spec :family "Symbola") nil 'prepend) ; emojis!
+(use-package emojify)
 (use-package zone-nyan) ; Nyan cat zone
 
 ;;; Advanced commands
