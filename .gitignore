@@ -13,3 +13,4 @@ emacs.d/tramp
 emacs.d/url/cookies
 custom
 emacs.d/ensime
+emacs.d/eshell
