@@ -6,6 +6,7 @@
    clisp      ; Common Lisp
    clojure
    coffee     ; CoffeScript
+   devops
    docker
    elisp
    elixir
