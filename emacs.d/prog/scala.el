@@ -2,4 +2,6 @@
 
 (use-package ensime
   :ensure t
-  :pin melpa-stable)
+  :config (setq ensime-startup-notification nil
+                ensime-startup-snapshot-notification nil
+                ensime-use-helm t))
