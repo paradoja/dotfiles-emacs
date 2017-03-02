@@ -15,6 +15,7 @@
    paredit
    pdf
    persp-mode
+   plantuml
    projectile
    rcirc
    restclient
