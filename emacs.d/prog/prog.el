@@ -26,4 +26,5 @@
    scala
    scss
    shell
+   swift
    web-mode))
