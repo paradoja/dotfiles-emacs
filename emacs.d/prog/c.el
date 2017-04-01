@@ -1,8 +1,8 @@
 (require 'use-package)
 
 (mapc (lambda (language)
-        (let (language-mode (intern (concat (symbol-name language) "-mode-hook")))
-         (add-hook 'c-mode-hook
+        (let ((language-mode (intern (concat (symbol-name language) "-mode-hook"))))
+         (add-hook language-mode
                    '(lambda ()
                       (c-set-style "stroustrup")
                       (c-toggle-hungry-state 1)
