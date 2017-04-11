@@ -47,11 +47,13 @@
   (setq rtags-completions-enabled t)
   (setq rtags-autostart-diagnostics t)
   (rtags-enable-standard-keybindings))
-(require 'company-rtags)
 
-(eval-after-load 'company
-  '(add-to-list
-    'company-backends 'company-rtags))
+(use-package company-rtags
+  :config
+  (eval-after-load 'company
+    '(add-to-list
+      'company-backends 'company-rtags)))
 
-(require 'rtags-helm)
-(setq rtags-use-helm t)
+(use-package helm-rtags
+  :config
+  (setq rtags-use-helm t))
