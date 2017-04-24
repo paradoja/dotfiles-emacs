@@ -1,6 +1,7 @@
 ;;; config-utils --- Configuration utilities
 
 (provide 'config-utils)
+(require 'f)
 
 (add-to-list 'load-path (file-truename "."))
 
