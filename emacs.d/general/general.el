@@ -71,7 +71,6 @@
   :init
   (setq alert-default-style 'notifications))
 
-;; TODO: Do something ;)
 (use-package hydra)
 
 (use-package company)

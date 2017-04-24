@@ -21,7 +21,7 @@
 
 (defun other-window-directed (option arg)
   "Changes the point to the selected window."
-  (interactive "c[o] other window [0-9] go to window 0-9 [hjkl]/[bnpf] move point ←↑↓→ [HJKL] change window size [r] Rotate\nP")
+  (interactive "c[o] other window [0-9] go to window 0-9 [hjkl]/[bnpf] move point ←↑↓→ [R] change window size [r] Rotate\nP")
   (let ((case-fold-search nil))
     (cl-flet* ((char-in (char list)
                         (-any? (lambda (current-char) (char-equal char current-char))
@@ -30,14 +30,7 @@
                                    (cond ((char-in char '(?h ?b)) wj-vec-left)
                                          ((char-in char '(?j ?n)) wj-vec-down)
                                          ((char-in char '(?k ?p)) wj-vec-up)
-                                         ((char-in char '(?l ?f)) wj-vec-right)))
-               ; TODO / TOFIX: this actually only works "correctly"
-               ; when the window is to the left
-               (increase-window-size (char)
-                                     (cond ((char-equal char ?H) '(-1 t))
-                                           ((char-equal char ?J) '(+1 nil))
-                                           ((char-equal char ?K) '(-1 nil))
-                                           ((char-equal char ?L) '(+1 t)))))
+                                         ((char-in char '(?l ?f)) wj-vec-right))))
       (cond ((char-equal ?o option)
              (call-interactively #'other-window))
             ((and (<= ?0 option)
@@ -46,11 +39,18 @@
                                       arg))
             ((move-point-towards option)
              (window-jump (move-point-towards option)))
-            ((increase-window-size option)
-             (apply #'enlarge-window(increase-window-size option)))
+            ((char-equal ?R option)
+             (hydra-increase-window-size/body))
             ((char-equal ?r option)
              (call-interactively #'do-window-rotation))))))
 
+
+(defhydra hydra-increase-window-size ()
+  "Increase window size"
+  ("h" (enlarge-window -1 t) "narrower")
+  ("j" (enlarge-window +1 nil) "taller")
+  ("k" (enlarge-window -1 nil) "shorter")
+  ("l" (enlarge-window +1 t) "wider"))
 
 (global-set-key "\C-co" 'other-window-directed)
 
