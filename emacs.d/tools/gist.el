@@ -1,3 +1,3 @@
 (require 'use-package)
 
-(use-package yagist)
+(use-package gist)
