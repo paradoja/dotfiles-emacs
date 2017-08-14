@@ -4,6 +4,7 @@
  '(ace-jump-mode
    dash
    dired
+   dot
    email
    eww
    flycheck
