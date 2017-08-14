@@ -23,3 +23,8 @@
   (file-truename (f-join (f-dirname (f-this-file))
                          path)
                  args))
+
+(defun if-exists-load-file (file)
+  "Loads a file if it exists"
+  (if (file-exists-p file)
+      (load-file file)))
