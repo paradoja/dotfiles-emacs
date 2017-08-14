@@ -8,6 +8,7 @@
    email
    eww
    flycheck
+   global
    highlight-indentation
    magit
    markdown
