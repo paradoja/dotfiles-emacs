@@ -25,6 +25,7 @@
    spelling-check
    symon
    tiny                  ; Quickly gen. linear ranges
+   trello
    twit                  ; Twittering mode
    window-navigation     ; Window numbering and chumpy windows
    yasnippets))
