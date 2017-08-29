@@ -16,3 +16,4 @@ emacs.d/ensime
 emacs.d/eshell
 emacs.d/emojis/
 /emacs.d/projectile.cache
+/emacs.d/.trello
