@@ -17,3 +17,4 @@ emacs.d/eshell
 emacs.d/emojis/
 /emacs.d/projectile.cache
 /emacs.d/.trello
+/emacs.d/request/
