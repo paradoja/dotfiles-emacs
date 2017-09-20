@@ -26,14 +26,19 @@
 ;;;  `-> F forward
 
 ;;; TODO: Signature, easy un-inboxing + un-unreading, easy unreading
+;;; TODO: better (key-workflow) including previously thing said
+;;; TODO: by default reply all
+
+;;; TODO: when answering, mark the answer as read (and not necessarily
+;;; in the inbox)
 
 (defun notmuch-paradojas-jump-search ()
   (interactive)
   (let ((action-map '(("u" "unread" (lambda () (notmuch-tree "is:unread")))
                       ("i" "inbox" (lambda () (notmuch-tree "is:inbox"))))))
-        (notmuch-jump action-map "Search: ")))
+    (notmuch-jump action-map "Search: ")))
 
-; TODO : this should probably not be here
+                                        ; TODO : this should probably not be here
 (defmacro run-after-process (process-list func)
   `(let ((first-process ,process-list))
      ; TODO: add (process-status process-list) check in case the process finished
