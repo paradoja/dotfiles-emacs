@@ -28,4 +28,5 @@
    trello
    twit                  ; Twittering mode
    window-navigation     ; Window numbering and chumpy windows
+   writeroom
    yasnippets))
