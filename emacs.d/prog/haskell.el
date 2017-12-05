@@ -32,4 +32,7 @@
 (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
 
 (use-package ghci-completion)
+(use-package hindent)
+(require 'hindent)
+(add-hook 'haskell-mode-hook #'hindent-mode)
 ;(use-package shm)
