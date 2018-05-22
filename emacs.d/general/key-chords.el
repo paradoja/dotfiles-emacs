@@ -1,21 +1,35 @@
-(defvar key-chord-prefixes '("º" "<"))
+(defvar key-chord-prefixes
+  "Key chord combination prefixes (initial keys)"
+  '("º" "<"))
 
-(defun set-chords-for-key (key)
+(defvar key-chord-combinations
+  "Key chord combinations' final key"
+  '(
+    ("m" universal-argument) ; C-u... for those moments
+    ("u" universal-argument) ; C-u... for those moments
+    ("i" indent-region)
+    ("," comment-or-uncomment-region)
+    ("v" evil-mode)
+    ("h" toggle-hightlight-indentation-mode)
+    ("l" hl-line-mode)
+    ("j" ace-jump-mode)
+    ("k" ace-jump-char-mode)
+    ("c" ace-mc-add-multiple-cursors)
+    (" " whitespace-mode)
+    ("s" subword-mode)
+    ("-" helm-dash)
+    ("." notmuch)
+    ("," magit-status)
+    ))
+
+(defun set-chords-for-key (prefix-key &optional combinations)
   "Sets key chords for given keys"
 
-  (key-chord-define-global (concat key "m") 'universal-argument) ; C-u... for those moments
-  (key-chord-define-global (concat key "u") 'universal-argument) ; C-u... for those moments
-  (key-chord-define-global (concat key "i") 'indent-region)
-  (key-chord-define-global (concat key ",") 'comment-or-uncomment-region)
-  (key-chord-define-global (concat key "v") 'evil-mode)
-  (key-chord-define-global (concat key "h") 'toggle-hightlight-indentation-mode)
-  (key-chord-define-global (concat key "l") 'hl-line-mode)
-  (key-chord-define-global (concat key "j") 'ace-jump-mode)
-  (key-chord-define-global (concat key "k") 'ace-jump-char-mode)
-  (key-chord-define-global (concat key "c") 'ace-mc-add-multiple-cursors)
-  (key-chord-define-global (concat key " ") 'whitespace-mode)
-  (key-chord-define-global (concat key "s") 'subword-mode)
-  (key-chord-define-global (concat key "-") 'helm-dash)
-  (key-chord-define-global (concat key ".") 'notmuch))
+  (let ((combs (or combinations key-chord-combinations)))
+    (mapc
+     (lambda (value-pair)
+       (pcase-let ((`(,key-combination ,supplied-function) value-pair))
+         (key-chord-define-global (concat prefix-key key-combination) supplied-function)))
+     combs)))
 
 (mapc #'set-chords-for-key key-chord-prefixes)
