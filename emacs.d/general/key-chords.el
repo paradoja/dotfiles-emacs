@@ -1,11 +1,8 @@
 (defvar key-chord-prefixes
-  "Key chord combination prefixes (initial keys)"
   '("º" "<"))
 
 (defvar key-chord-combinations
-  "Key chord combinations' final key"
   '(
-    ("m" universal-argument) ; C-u... for those moments
     ("u" universal-argument) ; C-u... for those moments
     ("i" indent-region)
     ("," comment-or-uncomment-region)
@@ -19,7 +16,7 @@
     ("s" subword-mode)
     ("-" helm-dash)
     ("." notmuch)
-    ("," magit-status)
+    ("m" magit-status)
     ))
 
 (defun set-chords-for-key (prefix-key &optional combinations)
