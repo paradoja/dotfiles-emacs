@@ -17,6 +17,7 @@
     ("-" helm-dash)
     ("." notmuch)
     ("m" magit-status)
+    ("b" menu-bar-mode)
     ))
 
 (defun set-chords-for-key (prefix-key &optional combinations)
