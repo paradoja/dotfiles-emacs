@@ -2,14 +2,15 @@
 
 (mapc (lambda (language)
         (let ((language-mode (intern (concat (symbol-name language) "-mode-hook"))))
-         (add-hook language-mode
-                   '(lambda ()
-                      (c-set-style "stroustrup")
-                      (c-toggle-hungry-state 1)
-                      (set-default c-auto-newline 1)
-                      (auto-fill-mode 1)
-                      (define-key c-mode-map (kbd "<return>")
-                        'pdox-new-line-and-indent)))))
+          (add-hook language-mode
+                    '(lambda ()
+                       (c-set-style "stroustrup")
+                       (c-toggle-hungry-state 1)
+                       (set-default c-auto-newline 1)
+                       (auto-fill-mode 1)
+                       (define-key c-mode-map (kbd "<return>")
+                         'pdox-new-line-and-indent)))
+          (add-hook language-mode #'aggressive-indent-mode)))
       (list 'c 'c++))
 
 ;; replace the `completion-at-point' and `complete-symbol' bindings in

@@ -9,7 +9,8 @@
   (add-hook 'ruby-mode-hook
             (lambda () (ruby-electric-mode t)))
   (add-hook 'ruby-mode-hook
-            (lambda () (flyspell-mode))))
+            (lambda () (flyspell-mode)))
+  (add-hook 'ruby-mode-hook #'aggressive-indent-mode))
 (use-package ruby-electric)
 
 (use-package rspec-mode

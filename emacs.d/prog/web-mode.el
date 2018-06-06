@@ -8,7 +8,8 @@
     (setq-default web-mode-markup-indent-offset 2) ; HTML
     (setq-default web-mode-css-indent-offset 2)    ; CSS
     (setq-default web-mode-code-indent-offset 2)
-    (setq-default web-mode-script-padding 2)))
+    (setq-default web-mode-script-padding 2)
+    (add-hook 'web-mode-hook #'aggressive-indent-mode)))
 
 
 (use-package company-web

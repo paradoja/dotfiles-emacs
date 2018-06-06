@@ -3,7 +3,9 @@
 (use-package clojure-mode
   :init
   (add-hook 'clojure-mode-hook
-            (lambda () (paredit-mode +1))))
+            (lambda () (paredit-mode +1)))
+  (add-hook 'clojure-mode-hook
+            #'aggressive-indent-mode))
 
 (use-package cider
   :init

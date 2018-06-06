@@ -1,4 +1,4 @@
 (require 'use-package)
 
 (use-package sass-mode)
-(use-package scss-mode)
+(add-hook 'sass-mode-hook #'aggressive-indent-mode)
