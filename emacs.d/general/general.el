@@ -11,6 +11,7 @@
 (defconst custom-file (file-truename "custom"))
 (load custom-file 'noerror)
 
+(require 'config-utils)
 (load-configurations
  '(helm
    rest))

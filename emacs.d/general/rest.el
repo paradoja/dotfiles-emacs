@@ -148,6 +148,3 @@
 ;;; Cambios en paquetes generales
 (use-package ace-jump-mode)
 (load "~/.emacs.d/general/key-chords")
-(load "~/.emacs.d/general/browse-kill-ring")
-
-(global-set-key "\C-\M-y" 'custom-yank-pop)

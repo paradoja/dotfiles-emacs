@@ -9,9 +9,17 @@
                        (set-default c-auto-newline 1)
                        (auto-fill-mode 1)
                        (define-key c-mode-map (kbd "<return>")
-                         'pdox-new-line-and-indent)))
+                       'pdox-new-line-and-indent))
           (add-hook language-mode #'aggressive-indent-mode)))
       (list 'c 'c++))
+
+;; Requires clang & cmake
+(use-package irony
+  :config
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
 ;; replace the `completion-at-point' and `complete-symbol' bindings in
 ;; irony-mode's buffers by irony-mode's function
@@ -21,13 +29,6 @@
   (define-key irony-mode-map [remap complete-symbol]
     'irony-completion-at-point-async))
 
-;; Requires clang & cmake
-(use-package irony
-  :config
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
 (use-package company-irony
   :config
@@ -55,6 +56,7 @@
     '(add-to-list
       'company-backends 'company-rtags)))
 
+(use-package rtags)
 (use-package helm-rtags
   :config
   (setq rtags-use-helm t))
