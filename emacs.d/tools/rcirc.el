@@ -1,4 +1,5 @@
 (require 'rcirc)
+(require 'f)
 
 ;; Don't print /away messages.
 ;; This does not require rcirc to be loaded already,
@@ -42,4 +43,5 @@
 ;;
 ;; Can also include changes to rcirc-server-alist
 (defvar rcirc-authinfo-file-name "~/.authinfo.el")
-(load-file rcirc-authinfo-file-name)
+(if (f-file? rcirc-authinfo-file-name)
+    (load-file rcirc-authinfo-file-name))
