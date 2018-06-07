@@ -28,6 +28,7 @@
    tiny                  ; Quickly gen. linear ranges
    trello
    twit                  ; Twittering mode
+   vimrc
    window-navigation     ; Window numbering and chumpy windows
    writeroom
    yasnippets))
