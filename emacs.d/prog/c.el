@@ -9,7 +9,7 @@
                        (set-default c-auto-newline 1)
                        (auto-fill-mode 1)
                        (define-key c-mode-map (kbd "<return>")
-                       'pdox-new-line-and-indent))
+                       'pdox-new-line-and-indent)))
           (add-hook language-mode #'aggressive-indent-mode)))
       (list 'c 'c++))
 
@@ -56,7 +56,6 @@
     '(add-to-list
       'company-backends 'company-rtags)))
 
-(use-package rtags)
 (use-package helm-rtags
   :config
   (setq rtags-use-helm t))
