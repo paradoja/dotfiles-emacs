@@ -10,7 +10,7 @@
    (ruby . t)
    (ditaa . t)
    (plantuml . t)
-   (sh . t)))
+   (shell . t)))
 
 ; Key map changes
 (define-key org-mode-map (kbd "C-,") 'magit-status)
