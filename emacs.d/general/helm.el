@@ -32,3 +32,11 @@
 (use-package helm)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
+
+(global-set-key (kbd "M-s o") 'helm-occur)
+
+(global-set-key (kbd "C-c SPC") 'helm-all-mark-rings)
+
+(global-set-key (kbd "C-c h M-:") 'helm-eval-expression-with-eldoc)
+
+(define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
