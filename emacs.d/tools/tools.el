@@ -22,6 +22,7 @@
    projectile
    rcirc
    restclient
+   shell
    slack
    spelling-check
    symon
