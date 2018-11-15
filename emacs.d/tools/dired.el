@@ -14,4 +14,4 @@
 (define-key dired-mode-map (kbd "C-c C-d x") 'direx:jump-to-directory)
 
 (require 'projectile)
-(define-key projectile-mode-map (kbd "C-c p x") 'direx-project:jump-to-project-root)
+(define-key projectile-mode-map (kbd "C-c p d") 'direx-project:jump-to-project-root)

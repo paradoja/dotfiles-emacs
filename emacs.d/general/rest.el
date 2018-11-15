@@ -1,4 +1,4 @@
-(use-package projectile)
+(use-package projectile) ; further config in projectile config file
 (use-package helm-projectile)
 
 (use-package swiper-helm)

@@ -1,5 +1,6 @@
 (require 'projectile)
-(projectile-global-mode)
+(projectile-mode)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (require 'helm-projectile)
 (setq projectile-completion-system 'helm)
