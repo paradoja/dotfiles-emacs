@@ -4,12 +4,12 @@
         (let ((language-mode (intern (concat (symbol-name language) "-mode-hook"))))
           (add-hook language-mode
                     '(lambda ()
-                       (c-set-style "stroustrup")
+                       (c-set-style "k&r")
                        (c-toggle-hungry-state 1)
-                       (set-default c-auto-newline 1)
+                       (setq-default c-auto-newline 1)
                        (auto-fill-mode 1)
                        (define-key c-mode-map (kbd "<return>")
-                       'pdox-new-line-and-indent)))
+                         'pdox-new-line-and-indent)))
           (add-hook language-mode #'aggressive-indent-mode)))
       (list 'c 'c++))
 
