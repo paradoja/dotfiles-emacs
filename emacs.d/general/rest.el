@@ -24,6 +24,12 @@
 (use-package discover-my-major)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 
+;;; Improvements on help
+(use-package helpful)
+(global-set-key (kbd "C-h f") #'helpful-callable)
+(global-set-key (kbd "C-h v") #'helpful-variable)
+(global-set-key (kbd "C-h k") #'helpful-key)
+
 (use-package evil)
 
 (use-package visual-regexp)
@@ -61,8 +67,7 @@
 (use-package company)
 (add-hook 'after-init-hook 'global-company-mode)
 
-                                        ; Enhanced rectangle edition, global mark mode and easy register use
-(cua-selection-mode t)
+(cua-selection-mode t) ; Enhanced rectangle edition, global mark mode and easy register use
 (setq-default cua-delete-selection nil)
 (delete-selection-mode -1)
 (winner-mode 1) ; C-c ←, C-c →
