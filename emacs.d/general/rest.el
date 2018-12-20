@@ -7,6 +7,10 @@
 
 (use-package helm-ls-git)
 
+;;; sources
+(setq auth-sources
+      '((:source "~/.authinfo.gpg")))
+
 ;;; Cambios de configuraciones de teclas
 (use-package browse-kill-ring)
 (global-set-key "\C-w" 'backward-kill-word)

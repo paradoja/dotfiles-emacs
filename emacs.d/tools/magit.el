@@ -10,3 +10,4 @@
 
 (use-package git-link)
 (use-package git-gutter)
+(use-package forge)
