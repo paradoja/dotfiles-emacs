@@ -28,3 +28,11 @@
   "Loads a file if it exists"
   (if (file-exists-p file)
       (load-file file)))
+
+(defmacro use-packages (&rest packages)
+  "Use/install a list of packages `use-package'."
+  (declare (indent defun))
+  (macroexp-progn
+   (mapcar (lambda (package)
+             `(use-package ,package))
+           packages)))
