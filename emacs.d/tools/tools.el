@@ -11,6 +11,7 @@
    flycheck
    global
    highlight-indentation
+   keycast
    magit
    markdown
    mc
