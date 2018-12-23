@@ -14,4 +14,5 @@
 (require 'config-utils)
 (load-configurations
  '(helm
+   mode-line
    rest))
