@@ -1,35 +1,37 @@
-;;; Smart Mode Line
-(use-package smart-mode-line)
-(require 'smart-mode-line)
-(require 'smart-mode-line-dark-theme)
-(sml/setup)
-;; I prefer to invert the colour scheme
-(sml/apply-theme 'dark)
-(custom-theme-set-faces
- 'smart-mode-line-dark
- '(mode-line ((t :foreground "gray60" :background "#404045")))
- '(mode-line-inactive     ((t :foreground "gray60" :background "black"))))
-(add-to-list 'sml/replacer-regexp-list `(,(concat "^" (abbreviate-file-name (file-truename "~/.emacs.d"))) ":ED:"))
-(mapc (lambda (mode)
-        (add-to-list 'sml/hidden-modes (format " %s" mode)))
-      (list
-       "Abbrev"     ; Abbrev
-       "Arev"       ; auto-revert
-       "ElDoc"      ; eldoc-mode
-       "FlyC"       ; flycheck-mode
-       "Guide"      ; guide-key-mode
-       "Helm"       ; helm
-       "Paredit"    ; paredit-mode
-       "Undo-Tree"  ; undo-tree-mode
-       "company"    ; company-mode
-       "rt"         ; ruby-tools-mode
-       "yas"        ; yas/minor-mode
+(require 'use-package)
+(use-package doom-modeline
+  :ensure t
+  :defer t
+  :hook (after-init . doom-modeline-init))
 
-                                        ; specific languages
-       "Irony"      ; c-related irony-mode
-       "REl"        ; ruby-electric-mode
-       ))
-(setq-default sml/col-number-format  "%3l")
-(setq-default sml/line-number-format "%3l")
-(setq-default sml/numbers-separator  "")
-(setq-default sml/col-number-format  "%3c")
+;; Themes
+(use-package doom-themes)
+
+;;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
+
+;;; Enable custom neotree theme (all-the-icons must be installed!)
+(doom-themes-neotree-config)
+;;; or for treemacs users
+(doom-themes-treemacs-config)
+
+;;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
+
+;; Solaire
+(use-package solaire-mode
+  :hook ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  :config
+  (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer)
+  (progn
+    (defvar have-we-swapped-solaire-yet-p nil
+      "Stores whether we have called the solaire mode swap to
+       make calling this file idempotent")
+    (if (not have-we-swapped-solaire-yet-p)
+        (progn
+          (setq have-we-swapped-solaire-yet-p 't)
+          (solaire-mode-swap-bg)))))
+
+;; Minions
+(use-package minions
+  :config (minions-mode 1))
