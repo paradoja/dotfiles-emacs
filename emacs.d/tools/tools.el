@@ -23,7 +23,6 @@
    rcirc
    restclient
    shell
-   slack
    spelling-check
    symon
    tiny                  ; Quickly gen. linear ranges
