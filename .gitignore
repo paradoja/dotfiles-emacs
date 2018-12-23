@@ -19,3 +19,4 @@ emacs.d/emojis/
 /emacs.d/.trello
 /emacs.d/request/
 /emacs.d/straight/
+/emacs.d/forge-database.sqlite
