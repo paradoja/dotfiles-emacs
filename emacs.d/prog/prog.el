@@ -23,6 +23,7 @@
    python
    r
    racket
+   reason
    ruby       ; Ruby, Rails && Co.
    sass
    scala

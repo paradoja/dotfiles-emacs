@@ -29,15 +29,28 @@
 - [Racer](https://github.com/phildawes/racer)
 
 #### Python
-
 ```bash
 pip install jedi flake8 importmagic autopep8 pyflakes
 ```
 Make sure that `pyflake` is in the path.
 
 #### Javascript
-
 Tern is used for flychecking.
+
+#### Ocaml/ReasonML
+- Opam
+- bucklescript compiler
+  ```bash
+  yarn global add bs-platform
+  ```
+- [Utop](https://github.com/ocaml-community/utop#integration-with-emacs)
+  ```bash
+  opam install utop # this is included in reason-cli
+  ```
+- reason-cli
+  ```bash
+  yarn global add reason-cli
+  ```
 
 #### PDF
 [pdf-tools](https://github.com/politza/pdf-tools) requires poppler and imagemagick
