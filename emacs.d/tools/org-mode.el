@@ -1,7 +1,5 @@
-(require 'use-package)
-
 (use-package org
-  :ensure org-plus-contrib)
+  :straight org-plus-contrib)
 (use-package ox-gfm)
 
 (org-babel-do-load-languages

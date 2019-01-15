@@ -1,6 +1,4 @@
-(require 'use-package)
 (use-package magit)
-(require 'magit)
 (require 'config-utils)
 
 (global-set-key (kbd "C-,") 'magit-status)
@@ -12,8 +10,13 @@
 (use-packages
   git-link
   git-gutter
-  forge
   git
   gitattributes-mode
   gitconfig-mode
   gitignore-mode)
+
+(use-packages ; forge requirements also here
+  closql
+  ghub
+  markdown-mode
+  forge)

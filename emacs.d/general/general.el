@@ -1,4 +1,4 @@
-(use-package use-package)
+(require 'use-package)
 
 ;;; libraries
 (use-package f)    ; Directory and file api
@@ -8,10 +8,12 @@
 ;;; Custom conf.
 (load (file-truename (f-join (f-dirname (f-this-file))
                              "config-utils")))
-(defconst custom-file (file-truename "custom"))
-(load custom-file 'noerror)
 
 (require 'config-utils)
+
+;;; fix for org-mode with straight.el
+(load-file "~/.emacs.d/general/org-fix.el")
+
 (load-configurations
  '(helm
    mode-line

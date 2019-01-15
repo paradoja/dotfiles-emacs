@@ -1,4 +1,2 @@
-(require 'use-package)
-
-(use-package "docker")
-(use-package "dockerfile-mode")
+(use-package docker)
+(use-package dockerfile-mode)

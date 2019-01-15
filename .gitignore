@@ -1,17 +1,13 @@
 session.*
 flycheck*
-emacs.d/.cask/
 emacs.d/abbrev_defs
 emacs.d/ac-comphist.dat
 emacs.d/auto-save-list/
-emacs.d/custom
 emacs.d/elpa/
 emacs.d/irony
 emacs.d/network-security.data
 emacs.d/projectile-bookmarks.eld
 emacs.d/tramp
-emacs.d/url/cookies
-custom
 emacs.d/ensime
 emacs.d/eshell
 emacs.d/emojis/
@@ -20,3 +16,4 @@ emacs.d/emojis/
 /emacs.d/request/
 /emacs.d/straight/
 /emacs.d/forge-database.sqlite
+/emacs.d/url/
