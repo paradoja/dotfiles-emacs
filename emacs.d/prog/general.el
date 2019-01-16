@@ -33,6 +33,3 @@
 
 ;;; Lisps
 (use-package paredit)
-(use-package rainbow-delimiters)
-
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)

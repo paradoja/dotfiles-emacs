@@ -16,5 +16,5 @@
 
 (load-configurations
  '(helm
-   mode-line
-   rest))
+   visuals
+   rest)) ; rest should go last

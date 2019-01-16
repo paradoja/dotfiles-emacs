@@ -2,8 +2,8 @@
   :config
   (add-hook 'scala-mode-hook #'aggressive-indent-mode))
 
-(straight-use-package 'ensime :branch "2.0")
 (use-package ensime
+  :straight (:repo "https://github.com/ensime/ensime-emacs" :branch "2.0")
   :config
   (progn (setq ensime-startup-notification nil
              ;;; TODO check following vars

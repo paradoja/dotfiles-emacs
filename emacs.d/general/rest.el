@@ -35,6 +35,7 @@
 (global-set-key (kbd "C-h k") #'helpful-key)
 
 (use-package evil)
+(use-package zone-nyan) ; Nyan cat zone
 
 (use-package visual-regexp)
 (require 'visual-regexp)
@@ -86,22 +87,6 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
-;;; Visual changes
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(setq inhibit-startup-echo-area-message t)
-(setq inhibit-startup-message t)
-(setq initial-scratch-message nil)
-(setq custom-theme-directory "~/.emacs.d/themes/")
-(load-theme 'tango-2-modified t)
-                                        ; (set-default-font "Inconsolata-13")
-(set-frame-font "Ubuntu Mono-13")
-(set-fontset-font
- t 'symbol
- (font-spec :family "Symbola") nil 'prepend) ; emojis!
-(use-package emojify)
-(use-package zone-nyan) ; Nyan cat zone
 
 ;;; Advanced commands
 (put 'set-goal-column  'disabled nil); C-x C-n
