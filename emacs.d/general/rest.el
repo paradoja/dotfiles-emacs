@@ -120,4 +120,4 @@
 
 ;;; Cambios en paquetes generales
 (use-package ace-jump-mode)
-(load "~/.emacs.d/general/key-chords")
+(load (f-join user-emacs-directory "general/key-chords"))

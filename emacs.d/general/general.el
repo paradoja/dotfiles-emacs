@@ -12,7 +12,7 @@
 (require 'config-utils)
 
 ;;; fix for org-mode with straight.el
-(load-file "~/.emacs.d/general/org-fix.el")
+(load-file (f-join user-emacs-directory "general/org-fix.el"))
 
 (load-configurations
  '(helm
