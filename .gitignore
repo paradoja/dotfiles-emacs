@@ -1,5 +1,7 @@
 session.*
 flycheck*
+/emacs.d/straight/
+!/emacs.d/straight/versions/ # line ignored by git, but still added for reference
 emacs.d/abbrev_defs
 emacs.d/ac-comphist.dat
 emacs.d/auto-save-list/
@@ -14,6 +16,5 @@ emacs.d/emojis/
 /emacs.d/projectile.cache
 /emacs.d/.trello
 /emacs.d/request/
-/emacs.d/straight/
 /emacs.d/forge-database.sqlite
 /emacs.d/url/
