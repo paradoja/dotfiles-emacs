@@ -15,16 +15,8 @@
 (use-package browse-kill-ring)
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
-(global-set-key "\C-x\C-f" 'helm-find-files)
-(global-set-key "\M-x" 'helm-M-x)
-(global-set-key "\C-xm" 'helm-M-x)
-(global-set-key "\C-x\C-m" 'helm-M-x)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ; M-x estándar
-(global-set-key (kbd "C-c C-o") 'helm-occur) ; tb. M-s o durante isearch
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
-(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
-(define-key global-map (kbd "C-c C-s") 'swiper-helm)
 (define-key global-map (kbd "RET") 'newline-and-indent)
+
 (use-package discover-my-major)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 

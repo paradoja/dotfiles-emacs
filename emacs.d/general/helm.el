@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package helm)
 (require 'helm-config)
 
@@ -40,3 +42,17 @@
 (global-set-key (kbd "C-c h M-:") 'helm-eval-expression-with-eldoc)
 
 (define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
+
+;; Other changes
+(global-set-key "\C-x\C-f" 'helm-find-files)
+(global-set-key (kbd "C-c C-o") 'helm-occur) ; tb. M-s o durante isearch
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+(define-key global-map (kbd "C-c C-s") 'swiper-helm)
+
+;;; M-x
+(global-set-key "\M-x" 'helm-M-x)
+(global-set-key "\C-xm" 'helm-M-x)
+(global-set-key "\C-x\C-m" 'helm-M-x)
+(setq helm-move-to-line-cycle-in-source nil) ; allow to scroll through the M-x list
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ; M-x estándar
