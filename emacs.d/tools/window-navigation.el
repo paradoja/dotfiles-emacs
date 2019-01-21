@@ -3,8 +3,6 @@
 (use-package window-numbering)
 (use-package rotate)
 (require 'dash)
-(require 'window-jump)
-(require 'window-numbering)
 
 (window-numbering-mode)
 

@@ -97,4 +97,4 @@
 
 ;;; Cambios en paquetes generales
 (use-package ace-jump-mode)
-(load (f-join user-emacs-directory "general/key-chords"))
+(load-emacs-conf-file "general/key-chords")

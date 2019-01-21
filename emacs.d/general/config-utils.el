@@ -36,3 +36,7 @@
    (mapcar (lambda (package)
              `(use-package ,package))
            packages)))
+
+(defun load-emacs-conf-file (file)
+  "Loads a local emacs configuration file"
+  (load (f-join user-emacs-directory file)))

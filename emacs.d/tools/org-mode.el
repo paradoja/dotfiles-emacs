@@ -1,5 +1,4 @@
-(use-package org
-  :straight org-plus-contrib)
+(use-package org) ; should already be loaded
 (use-package ox-gfm)
 
 (org-babel-do-load-languages

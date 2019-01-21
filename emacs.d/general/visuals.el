@@ -1,6 +1,10 @@
 (require 'use-package)
 
 ;;;;;;;;;;;;;;;;
+;; all the icons
+(use-package all-the-icons)
+
+;;;;;;;;;;;;;;;;
 ;; doom-modeline
 
 (use-package doom-modeline

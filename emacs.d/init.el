@@ -8,6 +8,7 @@
          "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
          'silent 'inhibit-cookies)
       (goto-char (point-max))
+
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
@@ -20,14 +21,20 @@
 (require 'straight)
 (setq straight-use-package-by-default t)
 
+;;; Custom conf.
+(mapc
+ (lambda (filename)
+   (load (concat user-emacs-directory "general/" filename ".el")))
+ '("general-libraries" "config-utils"))
+
 ;;; Cosas generales
-(load-file "~/.emacs.d/general/general.el")
+(load-emacs-conf-file "general/general.el")
 
 ;;; Programas, herramientas y aplicaciones
-(load-file "~/.emacs.d/tools/tools.el")
+(load-emacs-conf-file "tools/tools.el")
 
-;;; Programación, lenguajes y herramientos
-(load-file "~/.emacs.d/prog/prog.el")
+;;; Programación, lenguajes y herramientas
+(load-emacs-conf-file "prog/prog.el")
 
 ;;; Cosas específicas de algunos sistemas
-(load-file "~/.emacs.d/pers/pers.el")
+(load-emacs-conf-file "pers/pers.el")

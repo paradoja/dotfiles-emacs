@@ -1,16 +1,20 @@
 session.*
 flycheck*
 
+/emacs.d/.emacs-local
+
 # straight (to allow the versions to be easily versioned)
 /emacs.d/straight/build
 /emacs.d/straight/build-cache.el
 /emacs.d/straight/modified
 /emacs.d/straight/repos
 
+# multiple cursors
+/emacs.d/.mc-lists.el
+
 /emacs.d/abbrev_defs
 /emacs.d/ac-comphist.dat
 /emacs.d/auto-save-list/
-/emacs.d/elpa/
 /emacs.d/irony
 /emacs.d/network-security.data
 /emacs.d/projectile-bookmarks.eld
