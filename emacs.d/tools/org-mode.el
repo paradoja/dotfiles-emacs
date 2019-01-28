@@ -36,10 +36,10 @@
 
 ;; Agenda
 (defvar org-agenda-directories
-  "Has a list of directories from which new org-agenda
-directories will be recursively searched"
   (list "main"
-        "work"))
+        "work")
+  "Has a list of directories from which new org-agenda
+directories will be recursively searched")
 
 (defun org-agenda-directories ()
   "Gets a list of directories that are subdirectories of
@@ -66,4 +66,7 @@ changes in the org-agenda directories. Relies on
   (interactive)
   (setq org-agenda-files (org-agenda-directories)))
 
-(org-agenda-update-files)
+(condition-case err
+    (org-agenda-update-files)
+  (file-missing
+   (message "Error setting org-agenda-files: %s" err)))
