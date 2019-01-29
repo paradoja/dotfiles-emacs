@@ -70,3 +70,8 @@ changes in the org-agenda directories. Relies on
     (org-agenda-update-files)
   (file-missing
    (message "Error setting org-agenda-files: %s" err)))
+
+;; Journal
+(use-package org-journal
+  :custom
+  (org-journal-dir (f-join org-directory "journal/")))
