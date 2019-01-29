@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package projectile) ; further config in projectile config file
 (use-package helm-projectile)
 
@@ -10,6 +12,10 @@
 ;;; sources
 (setq auth-sources
       '((:source "~/.authinfo.gpg")))
+
+;;; "localization"
+(setq calendar-date-display-form
+      '((if dayname (concat dayname ", ")) day " " monthname " " year))
 
 ;;; Cambios de configuraciones de teclas
 (use-package browse-kill-ring)
