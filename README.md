@@ -55,6 +55,12 @@ Tern is used for flychecking.
 #### PDF
 [pdf-tools](https://github.com/politza/pdf-tools) requires poppler and imagemagick
 
+
+#### bash
+```bash
+npm i -g bash-language-server
+```
+
 ## Other requirements
 
 `~/.authinfo.el` is expected to have identity information. At least,
