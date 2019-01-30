@@ -1,5 +1,10 @@
 (require 'use-package)
 
+
+(use-package flycheck
+  :init (global-flycheck-mode))
+
+;;; Repl togle
 (use-package repl-toggle
   :init
   (setq rtog/fullscreen t)
@@ -33,3 +38,20 @@
 
 ;;; Lisps
 (use-package paredit)
+
+;;; langserver
+(use-package lsp-server
+  :commands lsp)
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :hook (lsp-mode-hook . lsp-ui-hook))
+(use-package company-lsp
+  :commands company-lsp
+  :config (push 'company-lsp company-backends))
+(use-package helm-lsp
+  :straight (:repo "https://github.com/yyoncho/helm-lsp/"))
+(use-package dap-mode
+  :config
+  (progn
+    (dap-mode 1)
+    (dap-ui-mode 1)))
