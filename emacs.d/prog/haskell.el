@@ -26,7 +26,9 @@
 
 (use-package intero
   :init
-  (add-hook 'haskell-mode-hook 'intero-mode))
+  (progn
+    (add-hook 'haskell-mode-hook 'intero-mode)
+    (add-to-list 'rtog/mode-repl-alist '(haskell-mode . intero-repl))))
 
 (require 'flycheck)
 (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
