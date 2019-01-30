@@ -21,6 +21,7 @@
 
 #### Scala
 - [Ensime](https://github.com/ensime/ensime-server/wiki/Quick-Start-Guide)
+- [Scala language server (metal)](https://github.com/rossabaker/lsp-scala)
 
 #### C/C++
 - [Irony](https://github.com/Sarcasm/irony-mode) requires CMake and Clang
