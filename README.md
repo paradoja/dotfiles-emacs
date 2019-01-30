@@ -39,6 +39,10 @@ Tern is used for flychecking.
 
 #### Ocaml/ReasonML
 - Opam
+```bash
+opam update
+opam switch 4.02.3+buckle-1
+```
 - bucklescript compiler
   ```bash
   yarn global add bs-platform
@@ -51,6 +55,10 @@ Tern is used for flychecking.
   ```bash
   yarn global add reason-cli
   ```
+- ocaml/reason language server
+```bash
+npm install -g ocaml-language-server
+```
 
 #### PDF
 [pdf-tools](https://github.com/politza/pdf-tools) requires poppler and imagemagick
