@@ -64,6 +64,7 @@
   :commands (alert)
   :init
   (setq alert-default-style 'notifications))
+(use-package selectric-mode)
 
 (use-package hydra)
 
