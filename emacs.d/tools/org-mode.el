@@ -18,6 +18,8 @@
    (plantuml . t)
    (shell . t)))
 
+(use-package ob-async)
+
 ;; Key map changes
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
