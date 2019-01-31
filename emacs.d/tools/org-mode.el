@@ -77,3 +77,8 @@ changes in the org-agenda directories. Relies on
 (use-package org-journal
   :custom
   (org-journal-dir (f-join org-directory "journal/")))
+
+;; Noter
+(use-package org-noter
+  :config
+  (setq org-noter-notes-search-path (list (f-join org-directory "noter/"))))
