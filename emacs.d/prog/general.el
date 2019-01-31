@@ -40,7 +40,7 @@
 (use-package paredit)
 
 ;;; langserver
-(use-package lsp-server
+(use-package lsp-mode
   :commands lsp)
 (use-package lsp-ui
   :commands lsp-ui-mode
