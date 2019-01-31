@@ -7,7 +7,7 @@
 (setq org-log-done t)
 
 (setq org-directory "~/org")
-
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 
 ;; Babel
 (org-babel-do-load-languages
