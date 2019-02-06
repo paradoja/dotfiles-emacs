@@ -37,6 +37,9 @@
 
 
 ;; Agenda
+(setq org-agenda-category-icon-alist
+      `(("work" ,(list (all-the-icons-faicon "cogs")) nil nil :ascent center)))
+
 (defvar org-agenda-directories
   (list "main"
         "work")
