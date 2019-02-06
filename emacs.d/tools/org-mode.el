@@ -51,14 +51,17 @@ directories will be recursively searched")
      (let ((dir
             (if (f-absolute? directory) directory
               (f-join org-directory directory))))
-       (f-directories dir
-                      (lambda (d)
-                        ;; right now `f-hidden?` is buggy, so we have to go on
-                        ;; a workaround
-                        (-none? (lambda (part)
-                                  (string= (substring part 0 1) "."))
-                                (f-split d)))
-                      t)))
+       (condition-case nil
+           (cons dir
+                 (f-directories dir
+                                (lambda (d)
+                                  ;; right now `f-hidden?` is buggy, so we have to go on
+                                  ;; a workaround
+                                  (-none? (lambda (part)
+                                            (string= (substring part 0 1) "."))
+                                          (f-split d)))
+                                t))
+         (file-missing (message "Warning: Org directory %s missing" dir) nil))))
    org-agenda-directories))
 
 (defun org-agenda-update-files ()
