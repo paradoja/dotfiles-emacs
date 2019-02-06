@@ -17,6 +17,7 @@
    haskell
    io
    javascript
+   lua
    nasm       ; (n)ASM
    puppet
    purescript
