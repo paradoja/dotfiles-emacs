@@ -33,6 +33,7 @@
 ;;; in the inbox)
 
 (defun notmuch-paradojas-jump-search ()
+  "Jump to one of fixed standard searches by shortcut key."
   (interactive)
   (let ((action-map '(("u" "unread" (lambda () (notmuch-tree "is:unread")))
                       ("i" "inbox" (lambda () (notmuch-tree "is:inbox"))))))
@@ -50,7 +51,7 @@
 (defun reload-email ()
   "Reload, reindex and refresh the emails and buffer"
   (interactive)
-  (run-after-process (start-process "sync email" "*Messages*" "mbsync" "gmail")
+  (run-after-process (start-process "sync email" "*Messages*" "mbsync" "-a")
                      (run-after-process
                       (start-process "reindex email" "*Messages*" "notmuch" "new")
                       (progn
