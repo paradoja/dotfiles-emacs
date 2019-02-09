@@ -80,6 +80,33 @@ changes in the org-agenda directories. Relies on
   (file-missing
    (message "Error setting org-agenda-files: %s" err)))
 
+(defun org-agenda/skip-tag-for-specific-days (tag skip-days)
+  (let* ((next-headline (save-excursion
+                          (or (outline-next-heading) (point-max))))
+         (current-headline (or (and (org-at-heading-p)
+                                    (point))
+                               (save-excursion (org-back-to-heading))))
+         (target (decode-time (current-time)))
+         (day (nth 6 target)))
+    (if (and (member tag (org-get-tags-at current-headline))
+             (member day skip-days))
+        next-headline
+      nil)))
+
+(defun org-agenda/skip-tag-work-weekends ()
+  (org-agenda/skip-tag-days "work" '(0 6)))
+
+(setq org-agenda-custom-commands
+      (setq org-agenda-custom-commands
+            '(("n" "Agenda and all TODOs"
+               ((agenda "")
+                (alltodo "")))
+              ("c" "Agenda"
+               ((agenda ""
+                        ((org-agenda-overriding-header "Agenda: ")
+                         (org-agenda-skip-function
+                          'org-agenda/skip-tag-work-weekends))))))))
+
 ;; Journal
 (use-package org-journal
   :custom
