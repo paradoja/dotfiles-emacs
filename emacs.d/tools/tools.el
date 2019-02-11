@@ -3,6 +3,7 @@
 (load-configurations
  '(ace-jump-mode
    atomic-chrome         ; To connect emacs with browser's text fields
+   calendar
    dash
    dired
    dot
