@@ -41,6 +41,15 @@
       `(("work" ,(list (all-the-icons-faicon "cogs")) nil nil :ascent center)
         ("life" ,(list (all-the-icons-faicon "smile-o")) nil nil :ascent center)))
 
+;;;; https://emacs.stackexchange.com/a/20192/1987
+(defun my/org-agenda-list-exclude-tags-advice (orig-fn &rest args)
+  "Exclude selected tags from `org-agenda-list'.
+Intended as :around advice for `org-agenda-list'."
+  (let ((org-agenda-tag-filter-preset '("-objectives")))
+    (funcall orig-fn args)))
+
+(advice-add #'org-agenda-list :around #'my/org-agenda-list-exclude-tags-advice)
+
 (defvar org-agenda-directories
   (list "main"
         "work")
