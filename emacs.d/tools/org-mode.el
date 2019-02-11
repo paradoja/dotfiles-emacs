@@ -4,10 +4,11 @@
 (use-package ox-gfm) ; Github Flavored Markdown exporter for Org Mode
 
 ;; General conf.
-(setq org-log-done t)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 
 (setq org-directory "~/org")
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
+(setq org-log-done t)
+(setq org-special-ctrl-a/e t)
 
 ;; Babel
 (org-babel-do-load-languages
