@@ -46,6 +46,9 @@
 
 ;;; Server
 (setenv "EDITOR" "/usr/bin/emacsclient")
+(require 'server)
+(unless(server-running-p)
+  (server-start))
 
 ;;; Behaviour and editing changes
 (require 'iso-transl)

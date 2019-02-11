@@ -40,3 +40,13 @@
 (defun load-emacs-conf-file (file)
   "Loads a local emacs configuration file"
   (load (f-join user-emacs-directory file)))
+
+(defmacro with-warning-level (level &rest body)
+  "Runs the body with the given warning level"
+  `(let ((warning-minimum-level ,level)
+         (result (ignore-errors "Error: %S" ,@body)))
+     result))
+
+(defmacro without-warnings (&rest body)
+  "Runs the body only showing emergencies"
+  `(with-warning-level :emergency ,@body))
