@@ -38,15 +38,25 @@
 
 
 ;; Agenda
+(defvar my/org-agenda-exluded-tags
+  '("objectives"))
+
 (setq org-agenda-category-icon-alist
       `(("work" ,(list (all-the-icons-faicon "cogs")) nil nil :ascent center)
         ("life" ,(list (all-the-icons-faicon "smile-o")) nil nil :ascent center)))
 
-;;;; https://emacs.stackexchange.com/a/20192/1987
+(setq org-agenda-custom-commands
+      '(("n" "Agenda and all TODOs"
+         ((agenda my/org-agenda-exluded-tags)
+          (alltodo my/org-agenda-exluded-tags)))))
+
+                                        ; org-stuck-projects
+
 (defun my/org-agenda-list-exclude-tags-advice (orig-fn &rest args)
+  ;; https://emacs.stackexchange.com/a/20192/1987
   "Exclude selected tags from `org-agenda-list'.
 Intended as :around advice for `org-agenda-list'."
-  (let ((org-agenda-tag-filter-preset '("-objectives")))
+  (let ((org-agenda-tag-filter-preset my/org-agenda-exluded-tags))
     (funcall orig-fn args)))
 
 (advice-add #'org-agenda-list :around #'my/org-agenda-list-exclude-tags-advice)
@@ -91,6 +101,8 @@ changes in the org-agenda directories. Relies on
    (message "Error setting org-agenda-files: %s" err)))
 
 ;; Journal
+; TODO shortcut
+
 (use-package org-journal
   :custom
   (org-journal-dir (f-join org-directory "journal/")))
