@@ -38,8 +38,8 @@
 
 
 ;; Agenda
-(defvar my/org-agenda-exluded-tags
-  '("objectives"))
+(defvar my/org-agenda-default-tags
+  '("-objectives"))
 
 (setq org-agenda-category-icon-alist
       `(("work" ,(list (all-the-icons-faicon "cogs")) nil nil :ascent center)
@@ -47,8 +47,8 @@
 
 (setq org-agenda-custom-commands
       '(("n" "Agenda and all TODOs"
-         ((agenda my/org-agenda-exluded-tags)
-          (alltodo my/org-agenda-exluded-tags)))))
+         ((agenda my/org-agenda-default-tags)
+          (alltodo my/org-agenda-default-tags)))))
 
                                         ; org-stuck-projects
 
@@ -56,7 +56,7 @@
   ;; https://emacs.stackexchange.com/a/20192/1987
   "Exclude selected tags from `org-agenda-list'.
 Intended as :around advice for `org-agenda-list'."
-  (let ((org-agenda-tag-filter-preset my/org-agenda-exluded-tags))
+  (let ((org-agenda-tag-filter-preset my/org-agenda-default-tags))
     (funcall orig-fn args)))
 
 (advice-add #'org-agenda-list :around #'my/org-agenda-list-exclude-tags-advice)

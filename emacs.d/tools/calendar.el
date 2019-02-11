@@ -2,4 +2,4 @@
 
 (use-package calfw)
 
-(use-package calfw-org.el)
+(use-package calfw-org)
