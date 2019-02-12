@@ -105,8 +105,6 @@ changes in the org-agenda directories. Relies on
    (message "Error setting org-agenda-files: %s" err)))
 
 ;; Journal
-;;; TODO shortcut
-
 (use-package org-journal
   :custom
   (org-journal-dir (f-join org-directory "journal/")))
