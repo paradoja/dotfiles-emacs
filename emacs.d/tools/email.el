@@ -1,5 +1,5 @@
 (require 'use-package)
-(require 's) ; TODO: use-package it
+(require 's)
 
 (setq mail-host-address (system-name))
 
