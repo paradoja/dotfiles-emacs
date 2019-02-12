@@ -41,16 +41,16 @@
 (defvar my/org-agenda-default-tags
   '("-objectives"))
 
+;;; (all-the-icons-insert-icons-for 'faicon) inserts all faicon icons to check
 (setq org-agenda-category-icon-alist
       `(("work" ,(list (all-the-icons-faicon "cogs")) nil nil :ascent center)
-        ("life" ,(list (all-the-icons-faicon "smile-o")) nil nil :ascent center)))
+        ("life" ,(list (all-the-icons-faicon "smile-o")) nil nil :ascent center)
+        ("emacs" ,(list (all-the-icons-fileicon "emacs")) nil nil :ascent center)))
 
 (setq org-agenda-custom-commands
       '(("n" "Agenda and all TODOs"
          ((agenda my/org-agenda-default-tags)
           (alltodo my/org-agenda-default-tags)))))
-
-                                        ; org-stuck-projects
 
 (defun my/org-agenda-list-exclude-tags-advice (orig-fn &rest args)
   ;; https://emacs.stackexchange.com/a/20192/1987
@@ -60,6 +60,7 @@ Intended as :around advice for `org-agenda-list'."
     (funcall orig-fn args)))
 
 (advice-add #'org-agenda-list :around #'my/org-agenda-list-exclude-tags-advice)
+(advice-add #'org-todo-list :around #'my/org-agenda-list-exclude-tags-advice)
 
 (defvar org-agenda-directories
   (list "main"
@@ -101,7 +102,7 @@ changes in the org-agenda directories. Relies on
    (message "Error setting org-agenda-files: %s" err)))
 
 ;; Journal
-; TODO shortcut
+;;; TODO shortcut
 
 (use-package org-journal
   :custom

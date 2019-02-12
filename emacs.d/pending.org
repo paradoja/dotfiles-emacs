@@ -1,8 +1,0 @@
-* packages to try
-** epresent
-For org-mode presentations
-
-* changes
-** Window navigation
-   - TODO should maybe be a package
-   - TODO should use helm(-like?) interface (also allowing late prefix?)
