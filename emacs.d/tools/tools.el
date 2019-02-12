@@ -26,6 +26,7 @@
    restclient
    shell
    spelling-check
+   sx                    ; stack overflow
    symon
    tiny                  ; Quickly gen. linear ranges
    trello

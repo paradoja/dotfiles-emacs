@@ -12,6 +12,12 @@ flycheck*
 # multiple cursors
 /emacs.d/.mc-lists.el
 
+# stack overflow
+/emacs.d/.sx
+
+# magit-forge
+/emacs.d/forge-database.sqlite
+
 /emacs.d/abbrev_defs
 /emacs.d/ac-comphist.dat
 /emacs.d/auto-save-list/
@@ -25,5 +31,4 @@ flycheck*
 /emacs.d/projectile.cache
 /emacs.d/.trello
 /emacs.d/request/
-/emacs.d/forge-database.sqlite
 /emacs.d/url/
