@@ -69,3 +69,6 @@
 (setq notmuch-search-oldest-first nil ; newer first
       message-citation-line-format "On %a, %d %b %Y, %f wrote:"
       message-citation-line-function 'message-insert-formatted-citation-line)
+
+;; SMTP
+(use-package smtpmail)

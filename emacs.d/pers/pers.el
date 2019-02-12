@@ -1,10 +1,7 @@
 (require 'config-utils)
 
 ;;; Computer specific
-(if-exists-load-file (f-join user-emacs-directory ".emacs-local"))
-
-;;; Work related org
-(if-exists-load-file "~/org/.emacs-work")
+(if-exists-load-file (f-join user-emacs-directory "emacs-local.el"))
 
 ;;; MacOSX
 (if (or (string-match "i386-apple-darwin.*" system-configuration)
