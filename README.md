@@ -70,6 +70,10 @@ npm install -g ocaml-language-server
 npm i -g bash-language-server
 ```
 
+#### org
+
+- `org-screenshot` requires `scrot`
+
 ## Other requirements
 
 `~/.authinfo.el` is expected to have identity information. At least,

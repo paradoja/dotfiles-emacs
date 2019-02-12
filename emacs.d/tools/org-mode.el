@@ -9,6 +9,9 @@
 (setq org-directory "~/org")
 (setq org-log-done t)
 (setq org-special-ctrl-a/e t)
+(add-to-list 'org-modules 'org-habit)
+(add-to-list 'org-modules 'org-notmuch)
+(add-to-list 'org-modules 'org-screenshot)
 
 ;; Babel
 (org-babel-do-load-languages
@@ -28,6 +31,7 @@
 (define-key org-mode-map (kbd "C-,") 'magit-status)
 (define-key org-mode-map (kbd "C-c M-RET") 'org-insert-todo-heading)
 
+
 ;; Source blocks
 (setq-default org-confirm-babel-evaluate nil)
 (setq org-src-fontify-natively t) ; set up syntax highlighting in source blocks
@@ -35,7 +39,6 @@
 ;; Diagrams
 (setq-default org-ditaa-jar-path (locate-file "ditaa" exec-path '("" ".jar")))
 (setq-default org-plantuml-jar-path (locate-file "plantuml" exec-path '("" ".jar")))
-
 
 ;; Agenda
 (defvar my/org-agenda-default-tags
