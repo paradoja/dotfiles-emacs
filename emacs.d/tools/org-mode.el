@@ -63,7 +63,6 @@ Intended as :around advice for `org-agenda-list'."
     (funcall orig-fn args)))
 
 (advice-add #'org-agenda-list :around #'my/org-agenda-list-exclude-tags-advice)
-(advice-add #'org-todo-list :around #'my/org-agenda-list-exclude-tags-advice)
 
 (defvar org-agenda-directories
   (list "main"
