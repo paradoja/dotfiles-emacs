@@ -32,4 +32,4 @@ flycheck*
 /emacs.d/.trello
 /emacs.d/request/
 /emacs.d/url/
-/emacs.d/emacs-local.el
+/emacs.d/pers/emacs-local.el
