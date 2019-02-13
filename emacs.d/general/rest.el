@@ -73,6 +73,8 @@
 
 (use-package company)
 (add-hook 'after-init-hook 'global-company-mode)
+(use-package company-quickhelp)
+(company-quickhelp-mode t)
 
 (cua-selection-mode t) ; Enhanced rectangle edition, global mark mode and easy register use
 (setq-default cua-delete-selection nil)
