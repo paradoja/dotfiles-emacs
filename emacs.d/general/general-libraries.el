@@ -5,3 +5,5 @@
 (use-package dash)            ; Modern list library
 (use-package dash-functional) ; combinators
 (use-package s)               ; strings
+
+(use-package general)         ; key bindings
