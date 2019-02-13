@@ -19,7 +19,6 @@
    org-mode
    paredit
    pdf
-   persp-mode
    plantuml
    projectile
    rcirc
@@ -33,5 +32,6 @@
    twit                  ; Twittering mode
    vimrc
    window-navigation     ; Window numbering and chumpy windows
+   workspaces
    writeroom
    yasnippets))
