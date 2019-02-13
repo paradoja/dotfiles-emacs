@@ -9,6 +9,7 @@
 (setq org-directory "~/org")
 (setq org-log-done t)
 (setq org-special-ctrl-a/e t)
+(setq org-enforce-todo-dependencies t)
 (add-to-list 'org-modules 'org-habit)
 (add-to-list 'org-modules 'org-notmuch)
 (add-to-list 'org-modules 'org-screenshot)
