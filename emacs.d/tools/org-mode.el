@@ -27,12 +27,20 @@
 (use-package ob-async)
 
 ;; Key map changes
-(define-key global-map (kbd "C-c l") 'org-store-link)
-(define-key global-map (kbd "C-c a") 'org-agenda)
+(general-def
+  :prefix "C-c"
+  "l" 'org-store-link
+  "a" 'org-agenda)
 
-(define-key org-mode-map (kbd "C-,") 'magit-status)
-(define-key org-mode-map (kbd "C-c M-RET") 'org-insert-todo-heading)
+(general-def org-mode-map
+  "C-," 'magit-status ; avoid the automatic rebinding here
+  )
 
+(general-def org-mode-map
+  :prefix "C-c"
+  "!" nil ; C-c ! is taken by flycheck
+  "! d" 'org-time-stamp-inactive
+  "M-RET" 'org-insert-todo-heading)
 
 ;; Source blocks
 (setq-default org-confirm-babel-evaluate nil)
