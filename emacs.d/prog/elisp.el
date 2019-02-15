@@ -10,5 +10,3 @@
 (use-package elisp-demos)
 (advice-add 'helpful-update
             :after #'elisp-demos-advice-helpful-update)
-
-(provide 'elisp)
