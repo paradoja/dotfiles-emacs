@@ -60,7 +60,8 @@
         ("life" ,(list (all-the-icons-faicon "smile-o")) nil nil :ascent center)
         ("social" ,(list (all-the-icons-faicon "users")) nil nil :ascent center)
         ("emacs" ,(list (all-the-icons-fileicon "emacs")) nil nil :ascent center)
-        ("journal" ,(list (all-the-icons-faicon "calendar")) nil nil :ascent center)))
+        ("journal" ,(list (all-the-icons-faicon "calendar")) nil nil :ascent center)
+        ("education" ,(list (all-the-icons-faicon "book")) nil nil :ascent center)))
 
 (setq org-agenda-custom-commands
       '(("n" "Agenda and all TODOs"
