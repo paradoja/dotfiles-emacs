@@ -125,10 +125,13 @@ changes in the org-agenda directories. Relies on
   :general
   (:prefix "C-c d"
            "n" 'org-journal-new-entry)
+  :config
+  (add-hook 'org-journal-mode-hook (lambda () (visual-line-mode 'disable)))
   :custom
   (org-journal-file-format "%Y%m%d.org")
   (org-journal-enable-agenda-integration t)
-  (org-journal-date-prefix "#+Category: journal\n\n* "))
+  (org-journal-date-prefix "#+Category: journal\n\n* ")
+  (org-journal-carryover-items nil))
 
 
 ;; Noter
