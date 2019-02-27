@@ -55,3 +55,9 @@
   (progn
     (dap-mode 1)
     (dap-ui-mode 1)))
+
+;;;
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq comment-auto-fill-only-comments t)
+            (auto-fill-mode 1)))
