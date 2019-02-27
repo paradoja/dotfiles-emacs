@@ -1,14 +1,15 @@
 (require 'use-package)
 (use-package yasnippet)
-(require 'yasnippet)
+(use-package yasnippet-snippets)
 
 (add-to-list 'yas-snippet-dirs
              (f-join user-emacs-directory "tools/yasnippets/"))
 (yas-global-mode 1)
 
-(require 'use-package)
-
 (use-package auto-yasnippet
-  :bind (("<backtab> w" . aya-create)
-         ("<backtab> y" . aya-expand)
-         ("<backtab> o" . aya-open-line)))
+  :general
+  (:prefix "C-c y"
+           "c" 'aya-create
+           "e" 'aya-expand
+           "o" 'aya-open-line
+           "p" 'aya-persist-snippet))
