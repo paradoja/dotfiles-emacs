@@ -11,8 +11,9 @@
    "M-[" 'paredit-wrap-square
    "M-{" 'paredit-wrap-curly)
   :hook
-  ((racket-unicode-input-method-enable . racket-mode)
-   (racket-unicode-input-method-enable . racket-repl-mode))
+  ((racket-mode . paredit-mode)
+   (racket-mode . racket-unicode-input-method-enable)
+   (racket-repl-mode . racket-unicode-input-method-enable))
   :config
   (progn
     (add-to-list 'rtog/mode-repl-alist '(racket-mode . racket-run-and-switch-to-repl))
