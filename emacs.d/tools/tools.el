@@ -1,7 +1,9 @@
 (require 'config-utils)
 
 (load-configurations
- '(ace-jump-mode
+ '(org-mode
+
+   ace-jump-mode
    atomic-chrome         ; To connect emacs with browser's text fields
    calendar
    dash
@@ -16,10 +18,10 @@
    magit
    markdown
    mc
-   org-mode
    paredit
    pdf
    plantuml
+   presentations
    projectile
    rcirc
    restclient
