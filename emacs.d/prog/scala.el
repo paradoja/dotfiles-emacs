@@ -22,3 +22,10 @@
 
 (use-package sbt-mode
   :commands sbt-start sbt-command)
+
+;; org-babel depens on this modes
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ (append org-babel-load-languages
+         '((scala . t))))

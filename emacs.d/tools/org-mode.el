@@ -22,8 +22,7 @@
    (ruby . t)
    (ditaa . t)
    (plantuml . t)
-   (shell . t)
-   (scala . t)))
+   (shell . t)))
 
 (use-package ob-async)
 
