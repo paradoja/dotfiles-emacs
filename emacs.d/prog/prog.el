@@ -19,6 +19,7 @@
    javascript
    lua
    nasm       ; (n)ASM
+   ocaml
    puppet
    purescript
    python
