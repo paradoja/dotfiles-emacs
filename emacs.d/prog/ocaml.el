@@ -3,6 +3,8 @@
          (f-join user-emacs-directory "prog" "ocaml" "opam-user-setup.el"))
 
 (use-package tuareg
+  :init
+  (add-to-list 'rtog/mode-repl-alist '(tuareg-mode . utop))
   :general
   (tuareg-mode-map
    "f12" 'next-error
