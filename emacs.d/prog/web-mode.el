@@ -1,6 +1,7 @@
 (require 'use-package)
 (require 'company)
 
+(use-package emmet-mode)
 (use-package web-mode
   :mode "\\.tpl\\|\\.php\\|\\.erb\\|\\.htm\\|\\.html"
   :config
@@ -9,7 +10,8 @@
     (setq-default web-mode-css-indent-offset 2)    ; CSS
     (setq-default web-mode-code-indent-offset 2)
     (setq-default web-mode-script-padding 2)
-    (add-hook 'web-mode-hook #'aggressive-indent-mode)))
+    (add-hook 'web-mode-hook #'aggressive-indent-mode)
+    (add-hook 'web-mode-hook #'emmet-mode)))
 
 
 (use-package company-web
