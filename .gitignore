@@ -33,3 +33,4 @@ flycheck*
 /emacs.d/request/
 /emacs.d/url/
 /emacs.d/pers/emacs-local.el
+/emacs.d/transient/
