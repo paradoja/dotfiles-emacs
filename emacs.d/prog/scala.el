@@ -1,8 +1,6 @@
 (require 'use-package)
 
-(use-package scala-mode
-  :config
-  (add-hook 'scala-mode-hook #'aggressive-indent-mode))
+(use-package scala-mode)
 
 (use-package ensime
   :straight (:repo "https://github.com/ensime/ensime-emacs" :branch "2.0")
