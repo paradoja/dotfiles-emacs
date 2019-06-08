@@ -2,6 +2,7 @@
 
 (load-configurations
  '(org-mode
+   org-podcast
 
    ace-jump-mode
    atomic-chrome         ; To connect emacs with browser's text fields
