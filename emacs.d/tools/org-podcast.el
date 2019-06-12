@@ -7,7 +7,8 @@
   (let ((categories (funcall f headline info))
         (enclosure (org-element-property :MEDIA headline))
         (lfile-link "")
-        (file-link (org--property-global-value "PODCAST_FILES" t))
-        )
+        (file-link (org--property-global-value "PODCAST_FILES" t)))
     (concat categories "\n"
             "<enclosure url='" file-link enclosure "' type='audio/mp3'></enclosure>")))
+
+(advice-add 'org-rss-build-categories :around 'org-rss-add-enclosure-to-podcast)
