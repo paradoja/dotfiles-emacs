@@ -34,3 +34,4 @@ flycheck*
 /emacs.d/url/
 /emacs.d/pers/emacs-local.el
 /emacs.d/transient/
+/emacs.d/.org-id-locations
