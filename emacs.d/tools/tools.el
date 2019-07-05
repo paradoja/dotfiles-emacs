@@ -11,7 +11,6 @@
    dired
    dot
    email
-   eww
    flycheck
    global
    highlight-indentation
@@ -34,6 +33,7 @@
    trello
    twit                  ; Twittering mode
    vimrc
+   web
    window-navigation     ; Window numbering and chumpy windows
    workspaces
    writeroom
