@@ -13,6 +13,7 @@
    elisp
    elixir
    elm
+   erlang
    go
    haskell
    io
