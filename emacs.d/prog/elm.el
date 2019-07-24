@@ -11,5 +11,4 @@
   :config
   (progn
     (eval-after-load 'flycheck
-      '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
-    (add-hook 'elm-mode-hook #'aggressive-indent-mode)))
+      '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))))
