@@ -37,4 +37,6 @@
 (use-package hindent)
 (require 'hindent)
 (add-hook 'haskell-mode-hook #'hindent-mode)
-;(use-package shm)
+;;; (use-package shm)
+
+(use-package shakespeare-mode) ; for Yesod's templates
