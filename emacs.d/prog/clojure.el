@@ -11,6 +11,7 @@
   :init
   (add-hook 'cider-mode-hook #'eldoc-mode))
 
+(use-package clj-refactor)
 
 ;; ;; highlight expression on eval
 ;; (require 'highlight)
