@@ -11,7 +11,13 @@
   :init
   (add-hook 'cider-mode-hook #'eldoc-mode))
 
-(use-package clj-refactor)
+
+(use-package clj-refactor
+  :init
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (clj-refactor-mode 1)
+              (cljr-add-keybindings-with-prefix "C-c C-m"))))
 
 ;; ;; highlight expression on eval
 ;; (require 'highlight)
