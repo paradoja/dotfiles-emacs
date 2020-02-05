@@ -41,7 +41,8 @@
 
 ;;; langserver
 (use-package lsp-mode
-  :commands lsp)
+  :commands lsp
+  :config (setq lsp-prefer-flymake nil))
 (use-package lsp-ui
   :commands lsp-ui-mode
   :hook (lsp-mode-hook . lsp-ui-hook))
@@ -50,7 +51,7 @@
   :config (push 'company-lsp company-backends))
 (use-package helm-lsp
   :straight (:repo "https://github.com/yyoncho/helm-lsp/"))
-(use-package dap-mode
+(use-package dap-mode ;; debug adapter protocol
   :config
   (progn
     (dap-mode 1)
