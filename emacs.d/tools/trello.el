@@ -10,7 +10,18 @@
         ;; here
         org-trello--config-file
         (f-join user-emacs-directory "tools" "trello" "conf.el"))
+  ;; Maybe this shouldn't be here?
+  (setq org-pretty-tags-surrogate-strings
+        (append org-pretty-tags-surrogate-strings
+                '(("sky" . "Non-fiction")
+                  ("blue" . "Fiction")
+                  ("green" . "UOC")
+                  ("orange" . "Tech")
+                  ("red" . "Science/Maths")
+                  ("purple" . "Creative")
+                  ("yellow" . "Exercise"))))
+  :hook org-pretty-tags-global-mode
   :custom
   (org-trello-files
    (list (f-join org-directory "main" "trello.org"))
-   org-trello con))
+   org-trello-current-prefix-keybinding "C-c t"))

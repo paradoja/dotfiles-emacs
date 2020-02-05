@@ -118,6 +118,10 @@ changes in the org-agenda directories. Relies on
   (file-missing
    (message "Error setting org-agenda-files: %s" err)))
 
+(use-package org-pretty-tags
+  :custom
+  (org-pretty-tags-surrogate-strings '()))
+
 ;; Journal
 (use-package org-journal
   :custom
