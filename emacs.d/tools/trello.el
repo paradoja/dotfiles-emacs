@@ -20,8 +20,16 @@
                   ("red" . "Science/Maths")
                   ("purple" . "Creative")
                   ("yellow" . "Exercise"))))
-  :hook org-pretty-tags-global-mode
+  :hook
+  org-pretty-tags-global-mode
+  (org-mode .
+            (lambda ()
+              (let ((filename (buffer-file-name (current-buffer))))
+                (when (and filename (string= "trello" (file-name-extension filename)))
+                  (org-trello-mode)))))
   :custom
   (org-trello-files
-   (list (f-join org-directory "main" "trello.org"))
-   org-trello-current-prefix-keybinding "C-c t"))
+   (list (f-join org-directory "main" "global.trello")))
+  (org-trello-current-prefix-keybinding "C-c t")
+  :mode
+  ("\\.trello$" . org-mode))
