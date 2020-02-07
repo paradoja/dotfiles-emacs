@@ -8,4 +8,6 @@
 (load-configurations
  '(helm
    visuals
-   rest)) ; rest should go last
+
+   rest
+   shortcuts)) ; rest & shortcuts should go last
