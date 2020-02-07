@@ -142,3 +142,32 @@ changes in the org-agenda directories. Relies on
 (use-package org-noter
   :config
   (setq org-noter-notes-search-path (list (f-join org-directory "noter/"))))
+
+;; org-roam
+
+(use-package org-roam
+  :after org
+  :hook (org-mode . org-roam-mode)
+  :straight (:host github :repo "jethrokuan/org-roam")
+  :custom
+  (org-roam-directory (f-join org-directory "main" "notes"))
+  :general
+  (:prefix "C-c n"
+           "l" 'org-roam
+           "t" 'org-roam-today
+           "f" 'org-roam-find-file
+           "i" 'org-roam-insert
+           "g" 'org-roam-show-graph))
+
+;; deft
+
+(use-package deft
+  :after org
+  :bind
+  ("C-c n d" . deft)
+  :custom
+  (deft-recursive t)
+  (deft-use-filter-string-for-filename t)
+  (deft-default-extension "org")
+  (deft-directory org-roam-directory)
+  (deft-use-filename-as-title t))
