@@ -1,6 +1,11 @@
 (require 'use-package)
 
-(use-package org) ; should already be loaded
+(use-package org
+  :hook
+  (org-mode .
+            (lambda ()
+              (setq-mode-local org-mode
+                               comment-auto-fill-only-comments nil)))) ; should already be loaded
 (use-package ox-gfm) ; Github Flavored Markdown exporter for Org Mode
 
 ;; General conf.
@@ -12,7 +17,7 @@
 (setq org-enforce-todo-dependencies t)
 (setq org-agenda-persistent-filter t)
 (add-to-list 'org-modules 'org-habit)
-(add-to-list 'org-modules 'org-notmuch)
+;;(add-to-list 'org-modules 'org-notmuch)
 (add-to-list 'org-modules 'org-screenshot)
 
 ;; Babel
