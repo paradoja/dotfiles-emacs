@@ -18,6 +18,7 @@
     ("." notmuch)
     ("m" magit-status)
     ("b" menu-bar-mode)
+    ("o" hydra-shortcuts/body)
     ))
 
 (defun set-chords-for-key (prefix-key &optional combinations)
