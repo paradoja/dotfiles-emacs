@@ -90,26 +90,40 @@ Intended as :around advice for `org-agenda-list'."
   "Has a list of directories from which new org-agenda
 directories will be recursively searched")
 
+(defvar org-agenda-directories-exclude
+  (list (f-join "main" "notes"))
+  "Has a list of directories to eventually be excluded from the
+org-agenda directories")
+
+(defun paradoja/org-absolute-dir (dir)
+  (if (f-absolute? dir) dir
+    (f-join org-directory dir)))
+
 (defun org-agenda-directories ()
   "Gets a list of directories that are subdirectories of
 `org-agenda-directories`"
-  (mapcan
-   (lambda (directory)
-     (let ((dir
-            (if (f-absolute? directory) directory
-              (f-join org-directory directory))))
-       (condition-case nil
-           (cons dir
-                 (f-directories dir
-                                (lambda (d)
-                                  ;; right now `f-hidden?` is buggy, so we have to go on
-                                  ;; a workaround
-                                  (-none? (lambda (part)
-                                            (string= (substring part 0 1) "."))
-                                          (f-split d)))
-                                t))
-         (file-missing (message "Warning: Org directory %s missing" dir) nil))))
-   org-agenda-directories))
+  (let ((excludes (mapcar #'paradoja/org-absolute-dir
+                          org-agenda-directories-exclude)))
+    (mapcan
+     (lambda (directory)
+       (let ((dir (paradoja/org-absolute-dir directory)))
+         (condition-case nil
+             (cons dir
+                   (f-directories dir
+                                  (lambda (d)
+                                    (and
+                                     (-none? (lambda (exclude)
+                                               (or (f-parent-of? exclude d)
+                                                   (f-same? exclude d)))
+                                             excludes)
+                                     ;; right now `f-hidden?` is buggy, so we have to go on
+                                     ;; a workaround
+                                     (-none? (lambda (part)
+                                               (string= (substring part 0 1) "."))
+                                             (f-split d))))
+                                  t))
+           (file-missing (message "Warning: Org directory %s missing" dir) nil))))
+     org-agenda-directories)))
 
 (defun org-agenda-update-files ()
   "Updates `org-agenda-files` so that it is up-to-date with
