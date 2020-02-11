@@ -16,6 +16,7 @@
 (setq org-special-ctrl-a/e t)
 (setq org-enforce-todo-dependencies t)
 (setq org-agenda-persistent-filter t)
+(setq org-deadline-warning-days 5)
 (add-to-list 'org-modules 'org-habit)
 ;;(add-to-list 'org-modules 'org-notmuch)
 (add-to-list 'org-modules 'org-screenshot)
