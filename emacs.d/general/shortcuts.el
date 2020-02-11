@@ -15,7 +15,8 @@
   ("i" (shortcuts/open-emacs-path "init.el") "init.el")
   ("g" (shortcuts/open-emacs-path "general" "general.el") "general.el")
   ("p" (shortcuts/open-emacs-path "prog" "prog.el") "prog.el")
-  ("t" (shortcuts/open-emacs-path "tools" "tools.el") "tools.el"))
+  ("t" (shortcuts/open-emacs-path "tools" "tools.el") "tools.el")
+  ("o" (shortcuts/open-emacs-path "tools" "org-mode.el") "org-mode.el"))
 
 ;; TODO: maybe have this dependent on the org structure itself?
 (defhydra hydra-shortcuts/org (:color blue)
