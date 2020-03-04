@@ -60,5 +60,5 @@
 ;;;
 (add-hook 'prog-mode-hook
           (lambda ()
-            (setq comment-auto-fill-only-comments t)
-            (auto-fill-mode 1)))
+            (setq-mode-local comment-auto-fill-only-comments t)))
+(auto-fill-mode 1)
