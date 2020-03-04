@@ -38,3 +38,20 @@
 
 ;;; Cosas específicas de algunos sistemas
 (load-emacs-conf-file "pers/pers.el")
+
+;;;;;;;;;;;;;;;;;
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-trello-current-prefix-keybinding "C-c o")
+ '(safe-local-variable-values
+   (quote
+    ((ispell-dictionary . "es")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((((class color) (min-colors 89)) (:foreground "#d3d3d3" :background "#000000")))))
