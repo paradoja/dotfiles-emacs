@@ -35,3 +35,5 @@ flycheck*
 /emacs.d/pers/emacs-local.el
 /emacs.d/transient/
 /emacs.d/.org-id-locations
+/emacs.d/.lsp*
+/emacs.d/elpy

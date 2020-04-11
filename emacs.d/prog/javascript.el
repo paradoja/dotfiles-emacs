@@ -1,5 +1,8 @@
 (require 'use-package)
 
+;; requirements
+;; Tern is used for flychecking.
+
 (use-package js2-mode
   :config
   (progn (use-package js2-refactor)

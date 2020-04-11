@@ -1,5 +1,8 @@
 (require 'use-package)
 
+;; requirements
+;; poppler and imagemagick
+
 (use-package pdf-tools)
 (if (file-executable-p pdf-info-epdfinfo-program)
     (pdf-tools-install)

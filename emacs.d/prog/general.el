@@ -42,7 +42,8 @@
 ;;; langserver
 (use-package lsp-mode
   :commands lsp
-  :config (setq lsp-prefer-flymake nil))
+  :config (setq lsp-prefer-flymake nil)
+  :hook (lsp-mode . lsp-lens-mode))
 (use-package lsp-ui
   :commands lsp-ui-mode
   :hook (lsp-mode-hook . lsp-ui-hook))
@@ -51,11 +52,25 @@
   :config (push 'company-lsp company-backends))
 (use-package helm-lsp
   :straight (:repo "https://github.com/yyoncho/helm-lsp/"))
-(use-package dap-mode ;; debug adapter protocol
+
+;;; DAP ;; debug adapter protocol
+
+;;;; Posframe is a pop-up tool that must be manually installed for dap-mode
+(use-package posframe)
+(use-package dap-mode
+  :hook
+  (lsp-mode . dap-mode)
+  (lsp-mode . dap-ui-mode)
   :config
   (progn
     (dap-mode 1)
     (dap-ui-mode 1)))
+
+;; Use the Tree View Protocol for viewing the project structure and triggering compilation
+(use-package lsp-treemacs
+  :config
+  (lsp-metals-treeview-enable t)
+  (setq lsp-metals-treeview-show-when-views-received t))
 
 ;;;
 (add-hook 'prog-mode-hook

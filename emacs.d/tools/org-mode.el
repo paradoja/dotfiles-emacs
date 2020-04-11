@@ -1,5 +1,8 @@
 (require 'use-package)
 
+;; requirements
+;; scrot for org-screenshot
+
 (use-package org
   :hook
   (org-mode .

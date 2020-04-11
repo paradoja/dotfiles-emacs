@@ -1,4 +1,29 @@
 (require 'use-package)
+
+;; requirements
+;; - Opam
+;; ```bash
+;; opam update
+;; opam switch 4.02.3+buckle-1
+;; ```
+;; - bucklescript compiler
+;; ```bash
+;; yarn global add bs-platform
+;; ```
+;; - [Utop](https://github.com/ocaml-community/utop#integration-with-emacs)
+;; ```bash
+;; opam install utop # this is included in reason-cli
+;; ```
+;; - reason-cli
+;; ```bash
+;; yarn global add reason-cli
+;; ```
+;; - ocaml/reason language server
+;; ```bash
+;; npm install -g ocaml-language-server
+;; ```
+
+
 (require 'opam-user-setup
          (f-join user-emacs-directory "prog" "ocaml" "opam-user-setup.el"))
 
