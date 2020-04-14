@@ -20,13 +20,12 @@
    javascript
    lua
    nasm       ; (n)ASM
-   ocaml
+   ocaml      ; ocaml, reason
    puppet
    purescript
    python
    r
    racket
-   reason
    ruby       ; Ruby, Rails && Co.
    sass
    scala
