@@ -17,10 +17,10 @@
    go
    haskell
    io
-   javascript
+   javascript ; js & typescript ;; todo
    lua
    nasm       ; (n)ASM
-   ocaml      ; ocaml, reason
+   ocaml      ; ocaml, reason ;; todo
    puppet
    purescript
    python

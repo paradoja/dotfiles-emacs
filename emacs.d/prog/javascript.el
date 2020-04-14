@@ -1,24 +1,48 @@
 (require 'use-package)
 
 ;; requirements
-;; Tern is used for flychecking.
+;; tsun for typescript interpreter
 
-(use-package js2-mode
+
+;; typescript
+
+(use-package typescript-mode
   :config
-  (progn (use-package js2-refactor)
-         (use-package xref-js2)))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js2-mode-hook #'js2-imenu-extras-mode) ; in case we load the menu
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-r")
+  (progn
+    (require 'ansi-color)
+    (add-hook 'compilation-filter-hook
+              (lambda ()
+                (ansi-color-apply-on-region
+                 compilation-filter-start (point-max))))))
 
-;; (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+(use-package ts-comint
+  :after (repl-toggle typescript-mode)
+  :general
+  (typescript-mode-map
+   "C-x C-e"  'ts-send-last-sexp
+   "C-M-x"    'ts-send-last-sexp-and-go
+   "C-c b"    'ts-send-buffer
+   "C-c C-b"  'ts-send-buffer-and-go
+   "C-c l"    'ts-load-file-and-go)
+  :config
+  (push '(typescript-mode . run-ts) rtog/mode-repl-alist))
 
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+;; ide
 
-(use-package tern)
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1))
 
-(add-hook 'js2-mode-hook #'aggressive-indent-mode)
+(use-package tide
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :config
+  (setq company-tooltip-align-annotations t)
+  :hook ((typescript-mode . setup-tide-mode)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
