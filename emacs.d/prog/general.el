@@ -40,6 +40,7 @@
 (use-package paredit)
 
 ;;; langserver
+(setq lsp-keymap-prefix "C-c C-l")
 (use-package lsp-mode
   :commands lsp
   :config (setq lsp-prefer-flymake nil)
@@ -77,3 +78,6 @@
           (lambda ()
             (setq-mode-local comment-auto-fill-only-comments t)))
 (auto-fill-mode 1)
+
+;;; autoformatter
+(use-package format-all)
