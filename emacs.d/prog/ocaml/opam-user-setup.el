@@ -53,8 +53,8 @@
 
 (defun opam-setup-complete ()
   (if (require 'company nil t)
-      (opam-setup-add-ocaml-hook
-       (lambda ()
+    (opam-setup-add-ocaml-hook
+      (lambda ()
          (company-mode)
          (defalias 'auto-complete 'company-complete)))
     (require 'auto-complete nil t)))
@@ -116,16 +116,7 @@
   (interactive)
   (dolist (tool opam-tools)
     (when (member (car tool) opam-tools-installed)
-      (funcall (symbol-function (cdr tool))))))
+     (funcall (symbol-function (cdr tool))))))
 
 (opam-auto-tools-setup)
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
-;; ## added by OPAM user-setup for emacs / ocp-indent ## 5f300926208e7925900238a693ee4444 ## you can edit, but keep this line
-;; Load ocp-indent from its original switch when not found in current switch
-(when (not (assoc "ocp-indent" opam-tools-installed))
-  (autoload 'ocp-setup-indent (f-join (getenv "HOME") ".opam/4.06.1/share/emacs/site-lisp/ocp-indent.el") "Improved indentation for Tuareg mode")
-  (autoload 'ocp-indent-caml-mode-setup (f-join (getenv "HOME") ".opam/4.06.1/share/emacs/site-lisp/ocp-indent.el") "Improved indentation for Caml mode")
-  (add-hook 'tuareg-mode-hook 'ocp-setup-indent t)
-  (add-hook 'caml-mode-hook 'ocp-indent-caml-mode-setup  t)
-  (setq ocp-indent-path (f-join (getenv "HOME") ".opam/4.06.1/bin/ocp-indent")))
-;; ## end of OPAM user-setup addition for emacs / ocp-indent ## keep this line
