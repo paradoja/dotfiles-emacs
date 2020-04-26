@@ -78,7 +78,15 @@
 (use-package utop
   :config
   (setq utop-command "opam config exec -- rtop -emacs")
-  :hook reason-mode)
+  :hook
+  (reason-mode . (lambda ()
+                   (setq utop-command "rtop -emacs")
+                   (setq utop-prompt
+                         (lambda ()
+                           (let ((prompt (format "rtop[%d]> " utop-command-number)))
+                             (add-text-properties 0 (length prompt) '(face utop-prompt) prompt)
+                             prompt)))
+                   (utop-minor-mode))))
 
 (defun shell-cmd (cmd)
   "Returns the stdout output of a shell command or nil if the command returned
