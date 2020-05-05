@@ -171,7 +171,6 @@ changes in the org-agenda directories. Relies on
 (use-package org-roam
   :after org
   :hook (org-mode . org-roam-mode)
-  :straight (:host github :repo "jethrokuan/org-roam")
   :custom
   (org-roam-directory (f-join org-directory "main" "notes"))
   :general
@@ -179,8 +178,9 @@ changes in the org-agenda directories. Relies on
            "l" 'org-roam
            "t" 'org-roam-today
            "f" 'org-roam-find-file
-           "i" 'org-roam-insert
-           "g" 'org-roam-show-graph))
+           "g" 'org-roam-show-graph)
+  (:keymaps 'org-mode-map
+            "i" 'org-roam-insert))
 
 ;; deft
 
