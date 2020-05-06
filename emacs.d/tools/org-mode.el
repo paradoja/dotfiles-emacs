@@ -168,21 +168,45 @@ changes in the org-agenda directories. Relies on
 
 ;; org-roam
 
-(use-package org-roam
-  :after org
-  :hook
-  (after-init . org-roam-mode)
-  :straight (:host github :repo "jethrokuan/org-roam")
-  :custom
-  (org-roam-directory (f-join org-directory "main" "notes"))
-  :general
-  (:prefix "C-c n"
-           "l" 'org-roam
-           "t" 'org-roam-today
-           "f" 'org-roam-find-file
-           "g" 'org-roam-show-graph)
-  (:keymaps 'org-mode-map
-            "i" 'org-roam-insert))
+
+(cl-flet ((mh ; make-header
+           (header)
+           (apply #'concat
+                  (mapcar (lambda (a) (s-append "\n" a))
+                          header))))
+  (use-package org-roam
+    :after org
+    :hook
+    (after-init . org-roam-mode)
+    :straight (:host github :repo "jethrokuan/org-roam")
+    :custom
+    (org-roam-directory (f-join org-directory "main" "notes"))
+    :general
+    (:prefix "C-c n"
+             "l" 'org-roam
+             "t" 'org-roam-today
+             "f" 'org-roam-find-file
+             "g" 'org-roam-show-graph)
+    (:keymaps 'org-mode-map
+              "C-c n i" 'org-roam-insert)
+    :config
+    (setq
+     org-roam-capture-templates
+     `(("d" "default" plain #'org-roam-capture--get-point
+        "%?"
+        :file-name "${slug}"
+        :head ,(mh '("#+TITLE: ${title}"
+                     "#+CREATED: %<%Y%m%d%H%M%S>"
+                     "#+TAGS: :note:"))
+        :unnarrowed t)
+       ("e" "exercise" plain #'org-roam-capture--get-point
+        "%?"
+        :file-name "exercises/${slug}"
+        :head ,(mh '("#+TITLE: ${title}"
+                     "#+CREATED: %<%Y%m%d%H%M%S>"
+                     "#+CATEGORY: exercises"
+                     "#+TAGS: :note:fitness:exercises:"))
+        :unnarrowed t)))))
 
 ;; deft
 
