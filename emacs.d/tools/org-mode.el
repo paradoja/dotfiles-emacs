@@ -186,7 +186,7 @@ changes in the org-agenda directories. Relies on
              "l" 'org-roam
              "t" 'org-roam-today
              "f" 'org-roam-find-file
-             "g" 'org-roam-show-graph)
+             "g" 'org-roam-graph)
     (:keymaps 'org-mode-map
               "C-c n i" 'org-roam-insert)
     :config
