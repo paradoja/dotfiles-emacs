@@ -170,7 +170,9 @@ changes in the org-agenda directories. Relies on
 
 (use-package org-roam
   :after org
-  :hook (org-mode . org-roam-mode)
+  :hook
+  (after-init . org-roam-mode)
+  :straight (:host github :repo "jethrokuan/org-roam")
   :custom
   (org-roam-directory (f-join org-directory "main" "notes"))
   :general
