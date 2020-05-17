@@ -23,7 +23,7 @@
    (haskell-process-log t))
   :general
   (:prefix "C-c C-p"
-           "C-l" 'haskell-process-load-or-reload
+           "C-l" 'haskell-process-load-file
            "i" 'haskell-interactive-bring
            "C-t" 'haskell-process-do-type
            "C-i" 'haskell-process-do-info
