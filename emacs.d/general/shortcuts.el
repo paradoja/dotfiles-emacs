@@ -9,7 +9,12 @@
 (defhydra hydra-shortcuts (global-map "C-c C-f"
                                       :color blue)
   ("e" hydra-shortcuts/emacs/body "emacs")
-  ("o" hydra-shortcuts/org/body "org"))
+  ("o" hydra-shortcuts/org/body "org")
+  ("s" hydra-shortcuts/scratch "scratch"))
+
+(defun hydra-shortcuts/scratch ()
+  (interactive)
+  (switch-to-buffer "*scratch*"))
 
 (defhydra hydra-shortcuts/emacs (:color blue)
   ("i" (shortcuts/open-emacs-path "init.el") "init.el")
