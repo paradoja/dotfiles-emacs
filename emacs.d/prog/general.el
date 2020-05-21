@@ -56,8 +56,7 @@
 (use-package company-lsp
   :commands company-lsp
   :config (push 'company-lsp company-backends))
-(use-package helm-lsp
-  :straight (:repo "https://github.com/yyoncho/helm-lsp/"))
+(use-package helm-lsp)
 
 ;;; DAP ;; debug adapter protocol
 

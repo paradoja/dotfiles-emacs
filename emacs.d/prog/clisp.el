@@ -5,6 +5,7 @@
 (add-hook 'lisp-interaction-mode-hook
           #'aggressive-indent-mode)
 
+(require 'mode-local)
 (use-package slime)
 
 (setq inferior-lisp-program "sbcl")

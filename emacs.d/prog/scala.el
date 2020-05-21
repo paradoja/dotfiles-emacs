@@ -4,7 +4,6 @@
   :mode "\\.s\\(cala\\|bt\\)$")
 
 (use-package lsp-scala
-  :straight (:repo "https://github.com/rossabaker/lsp-scala")
   :after scala-mode
   :demand t
   :hook (scala-mode . lsp)
