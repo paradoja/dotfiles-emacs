@@ -29,6 +29,7 @@
    ruby       ; Ruby, Rails && Co.
    sass
    scala
+   scheme
    scss
    shell
    swift
