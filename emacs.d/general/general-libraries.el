@@ -7,3 +7,4 @@
 (use-package s)               ; strings
 
 (use-package general)         ; key bindings
+(use-package pcre2el)         ; "normal" regexp

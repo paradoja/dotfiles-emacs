@@ -9,7 +9,7 @@
 
 (use-package helm-ls-git)
 
-;;; sources
+;;; authentication
 (setq auth-sources
       '((:source "~/.authinfo.gpg")))
 
@@ -17,32 +17,66 @@
 (setq calendar-date-display-form
       '((if dayname (concat dayname ", ")) day " " monthname " " year))
 
-;;; Cambios de configuraciones de teclas
+;;; Key combination changes
 (use-package browse-kill-ring)
-(global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-x\C-k" 'kill-region)
-(define-key global-map (kbd "RET") 'newline-and-indent)
+(general-def
+  "C-w" 'backward-kill-word
+  "C-x C-k" 'kill-region
+  "RET" 'newline-and-indent)
+
+;;; Improvements on help
+(use-package helpful
+  :general
+  (:prefix
+   "C-h"
+   "f" #'helpful-callable
+   "v" #'helpful-variable
+   "k" #'helpful-key))
 
 (use-package discover-my-major)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 
-;;; Improvements on help
-(use-package helpful)
-(global-set-key (kbd "C-h f") #'helpful-callable)
-(global-set-key (kbd "C-h v") #'helpful-variable)
-(global-set-key (kbd "C-h k") #'helpful-key)
-
+;;; General use
 (use-package evil)
 (use-package zone-nyan) ; Nyan cat zone
 
-(use-package visual-regexp)
-(require 'visual-regexp)
-(setq vr/match-separator-string ">>")
-(define-key global-map (kbd "C-c r") 'vr/replace)
-(define-key global-map (kbd "C-c q") 'vr/query-replace)
-(define-key global-map (kbd "C-c m") 'vr/mc-mark)
-(use-package iedit)
-(define-key global-map (kbd "C-c i") 'iedit-mode)
+(use-package visual-regexp
+  :config
+  (setq vr/match-separator-string ">>")
+  :general
+  (:prefix
+   "C-c r"
+   "r" 'vr/replace
+   "q" 'vr/query-replace
+   "m" 'vr/mc-mark))
+(use-package visual-regexp-steroids
+  :after '('visual-regexp 'pcre2el)
+  :config
+  (let ((py (or (executable-find "python2")
+                (executable-find "python")))
+        (py-regexp (f-expand
+                    (f-join user-emacs-directory
+                            "straight"
+                            "repos"
+                            "visual-regexp-steroids.el"
+                            "regexp.py"))))
+    (if py
+        (progn
+          (setq vr/engine 'python
+                vr/command-python
+                (format "%s %s" py py-regexp)))
+      (setq vr/engine 'pcre2el)))
+  :general
+  (:prefix
+   "C-c r"
+   "s" 'vr/isearch-forward
+   "i" 'vr/isearch-backward)
+  ("C-M-s" 'vr/isearch-forward
+   "C-M-i" 'vr/isearch-backward))
+
+(use-package iedit
+  :general
+  ("C-c i" 'iedit-mode))
 
 ;;; Server
 (setenv "EDITOR" "/usr/bin/emacsclient")
