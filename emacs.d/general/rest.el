@@ -109,7 +109,7 @@
 (setq-default truncate-lines t)
 (use-package expand-region
   :general
-  ("C-e" 'er/expand-region))
+  ("C-c e" 'er/expand-region))
 (use-package change-inner
   :general
   (:prefix
