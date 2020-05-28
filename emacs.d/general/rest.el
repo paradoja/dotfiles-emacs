@@ -85,6 +85,17 @@
   (server-start))
 
 ;;; Behaviour and editing changes
+(use-package keyfreq
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1)
+  (setq keyfreq-excluded-commands
+        '(self-insert-command
+          forward-char
+          backward-char
+          previous-line
+          next-line)))
+
 (require 'iso-transl)
 (setq-default indent-tabs-mode nil) ; no tabs
 (global-font-lock-mode 1)
