@@ -107,7 +107,15 @@
 (use-package key-chord)
 (key-chord-mode 1)
 (setq-default truncate-lines t)
-(use-package expand-region)
+(use-package expand-region
+  :general
+  ("C-e" 'er/expand-region))
+(use-package change-inner
+  :general
+  (:prefix
+   "C-c C-i"
+   "i" 'change-inner
+   "o" 'change-outer))
 (use-package alert
   :commands (alert)
   :init
