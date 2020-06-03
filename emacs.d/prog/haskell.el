@@ -32,11 +32,10 @@
            "C-k" 'haskell-interactive-mode-clear
            "c" 'haskell-process-cabal))
 (use-package lsp-haskell
-  :hook (haskell-mode)
-   :config
- (setq lsp-haskell-process-path-hie "ghcide")
- (setq lsp-haskell-process-args-hie '())
- ;; Comment/uncomment this line to see interactions between lsp client/server.
- ;;(setq lsp-log-io t)
-)
+  :config
+  (setq lsp-haskell-process-path-hie "ghcide")
+  (setq lsp-haskell-process-args-hie '())
+  ;; Comment/uncomment this line to see interactions between lsp client/server.
+  ;;(setq lsp-log-io t)
+  )
 ;; (use-package shakespeare-mode) ; for Yesod's templates
