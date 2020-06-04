@@ -52,7 +52,13 @@
   :hook (lsp-mode . lsp-lens-mode))
 (use-package lsp-ui
   :commands lsp-ui-mode
-  :hook (lsp-mode-hook . lsp-ui-hook))
+  :hook (lsp-mode-hook . lsp-ui-hook)
+  :config
+  (setq lsp-ui-sideline-show-hover t
+        lsp-ui-sideline-delay 0.1
+        lsp-ui-doc-position 'top
+        lsp-ui-doc-delay 0.1
+        lsp-ui-doc-use-webkit nil))
 (use-package company-lsp
   :commands company-lsp
   :config (push 'company-lsp company-backends))

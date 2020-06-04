@@ -37,3 +37,4 @@ flycheck*
 /emacs.d/.org-id-locations
 /emacs.d/.lsp*
 /emacs.d/elpy
+/emacs.d/.dap-breakpoints
