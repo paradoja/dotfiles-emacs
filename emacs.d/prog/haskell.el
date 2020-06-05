@@ -23,14 +23,15 @@
    (haskell-process-auto-import-loaded-modules t)
    (haskell-process-log t))
   :general
-  (:prefix "C-c C-p"
-           "C-l" 'haskell-process-load-file
-           "i" 'haskell-interactive-bring
-           "C-t" 'haskell-process-do-type
-           "C-i" 'haskell-process-do-info
-           "C-c" 'haskell-process-cabal-build
-           "C-k" 'haskell-interactive-mode-clear
-           "c" 'haskell-process-cabal))
+  (haskell-mode-map
+   :prefix "C-c C-p"
+   "C-l" 'haskell-process-load-file
+   "i"   'haskell-interactive-bring
+   "C-t" 'haskell-process-do-type
+   "C-i" 'haskell-process-do-info
+   "C-c" 'haskell-process-cabal-build
+   "C-k" 'haskell-interactive-mode-clear
+   "c"   'haskell-process-cabal))
 (use-package lsp-haskell
   :config
   (setq lsp-haskell-process-path-hie "ghcide")

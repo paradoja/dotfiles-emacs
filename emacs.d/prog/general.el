@@ -77,8 +77,18 @@
     (dap-mode 1)
     (dap-ui-mode 1)))
 
+(use-package treemacs
+  :config
+  (treemacs-git-mode 'extended)
+  (with-eval-after-load 'treemacs
+    (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)))
+(use-package treemacs-projectile)
+(use-package treemacs-magit)
+(use-package treemacs-icons-dired) ; this is more for dired
+
 ;; Use the Tree View Protocol for viewing the project structure and triggering compilation
 (use-package lsp-treemacs
+  :after treemacs
   :config
   (lsp-metals-treeview-enable t)
   (setq lsp-metals-treeview-show-when-views-received t))

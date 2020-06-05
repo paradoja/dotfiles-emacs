@@ -19,6 +19,8 @@
     ("m" magit-status)
     ("b" menu-bar-mode)
     ("o" hydra-shortcuts/body)
+    ("p" treemacs)
+    ("t" treemacs-projectile)
     ))
 
 (defun set-chords-for-key (prefix-key &optional combinations)

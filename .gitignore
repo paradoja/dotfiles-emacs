@@ -38,3 +38,4 @@ flycheck*
 /emacs.d/.lsp*
 /emacs.d/elpy
 /emacs.d/.dap-breakpoints
+/emacs.d/.cache/
