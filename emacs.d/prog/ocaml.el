@@ -25,7 +25,7 @@
 ;; ```bash
 ;; yarn global add ocaml-language-server
 ;; ```
-
+;; - https://github.com/jaredly/reason-language-server
 
 (require 'opam-user-setup
          (f-join user-emacs-directory "prog" "ocaml" "opam-user-setup.el"))
@@ -120,6 +120,7 @@
 (use-package reason-mode
   :hook
   ((reason-mode . emmet-mode)
+   (reason-mode . lsp)
    (before-save . refmt-before-save))
   :hook merlin-mode)
 
@@ -138,6 +139,15 @@
   (add-hook hook 'merlin-mode))
 (general-def merlin-mode-map
   "C-c i" 'evil-custom-merlin-iedit)
+(let ((rls (executable-find "reason-language-server")))
+  (if rls
+      (lsp-register-client
+       (make-lsp-client :new-connection (lsp-stdio-connection rls)
+                        :major-modes '(reason-mode)
+                        :notification-handlers (ht ("client/registerCapability" 'ignore))
+                        :priority 1
+                        :server-id 'reason-ls))))
+
 ;; (use-package merlin
 ;;   :ensure nil
 ;;   :load-path merlin-load-path
