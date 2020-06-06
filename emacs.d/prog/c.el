@@ -8,6 +8,7 @@
   "https://github.com/MaskRay/ccls/wiki/Build"))
 
 (-when-let (ccls (executable-find "ccls"))
+  (add-hook 'c-mode-hook #'lsp)
   (use-package ccls
     :init
     (setq ccls-executable ccls)))
