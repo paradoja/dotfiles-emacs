@@ -118,8 +118,9 @@
 (require 'merlin)
 
 (use-package reason-mode
-  :init
-  (add-hook 'before-save-hook 'refmt-before-save)
+  :hook
+  ((reason-mode . emmet-mode)
+   (before-save . refmt-before-save))
   :hook merlin-mode)
 
 (defun evil-custom-merlin-iedit ()
