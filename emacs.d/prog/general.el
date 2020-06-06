@@ -44,8 +44,7 @@
 (setq lsp-keymap-prefix "C-c C-l")
 (use-package lsp-mode
   :commands lsp
-  :config (setq lsp-prefer-flymake nil)
-  :hook (lsp-mode . lsp-lens-mode))
+  :config (setq lsp-prefer-flymake nil))
 (use-package lsp-ui
   :commands lsp-ui-mode
   :hook (lsp-mode-hook . lsp-ui-hook)
