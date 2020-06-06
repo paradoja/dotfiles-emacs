@@ -98,4 +98,17 @@
 (use-package format-all)
 
 ;;; origamy / code folder
-(use-package origami)
+(use-package origami
+  :general
+  (lsp-mode-map
+   :prefix "C-c C-l o"
+   "t" 'origami-recursively-toggle-node
+   "o" 'origami-show-only-node
+   "u" 'origami-undo
+   "r" 'origami-redo
+   "a" 'origami-open-all-nodes
+   "O" 'origami-open-node-recursively
+   "c" 'origami-close-node-recursively))
+(global-origami-mode)
+(use-package lsp-origami
+  :hook (lsp-after-open . lsp-origami-try-enable))
