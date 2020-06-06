@@ -96,3 +96,6 @@
 
 ;;; autoformatter
 (use-package format-all)
+
+;;; origamy / code folder
+(use-package origami)

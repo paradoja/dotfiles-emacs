@@ -2,8 +2,6 @@
 
 (use-package go-mode
   :config
-  (add-hook 'go-mode-hook #'aggressive-indent-mode)
-  :config
   (add-hook 'go-mode-hook
             #'(lambda ()
                 ;; Use goimports instead of go-fmt

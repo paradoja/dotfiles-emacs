@@ -6,7 +6,6 @@
    clisp      ; Common Lisp
    clojure
    cmake
-   coffee     ; CoffeScript
    css
    devops
    docker

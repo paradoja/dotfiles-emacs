@@ -16,8 +16,7 @@
    (racket-repl-mode . racket-unicode-input-method-enable))
   :config
   (progn
-    (add-to-list 'rtog/mode-repl-alist '(racket-mode . racket-run-and-switch-to-repl))
-    (add-hook 'racket-mode-hook #'aggressive-indent-mode)))
+    (add-to-list 'rtog/mode-repl-alist '(racket-mode . racket-run-and-switch-to-repl))))
 
 ;; future custom build step:
 ;; (racket-mode-start-faster)

@@ -6,4 +6,3 @@
 ;; Make sure that `pyflake` is in the path.
 
 (elpy-enable)
-(add-hook 'python-mode-hook #'aggressive-indent-mode)
