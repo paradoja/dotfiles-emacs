@@ -25,7 +25,7 @@
 (mapc
  (lambda (filename)
    (load (concat user-emacs-directory "general/" filename ".el")))
- '("general-libraries" "config-utils"))
+ '("general-libraries" "config-utils" "requirements"))
 
 ;;; Cosas generales
 (load-emacs-conf-file "general/general.el")

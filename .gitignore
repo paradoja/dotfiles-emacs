@@ -39,3 +39,4 @@ flycheck*
 /emacs.d/elpy
 /emacs.d/.dap-breakpoints
 /emacs.d/.cache/
+/emacs.d/tools/trello/paradoja.el
