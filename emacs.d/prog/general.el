@@ -22,10 +22,6 @@
   (newline arg)
   (indent-according-to-mode))
 
-(use-package aggressive-indent)
-;; (global-aggressive-indent-mode 1)
-;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
-
 (use-package haml-mode)
 (use-package yaml-mode)
 (use-package highlight-indentation)
