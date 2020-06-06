@@ -1,9 +1,22 @@
 (require 'flycheck)
 
+(requirements-add
+ shell.el
+ (shellcheck
+  (executable-find "shellcheck")
+  "Shellcheck"
+  "https://www.shellcheck.net/")
+ (bash-language-server
+  (executable-find "bash-language-server")
+  "Bash language server
+   yarn global add bash-language-server"
+  "https://github.com/bash-lsp/bash-language-server"))
+
 ;; requirements
 ;; npm i -g bash-language-server
 
-(let ((executable-path (executable-find "shellcheck")))
-  (if executable-path
-      (setq flycheck-sh-shellcheck-executable executable-path)))
-(add-hook 'shell-mode-hook #'aggressive-indent-mode)
+(-when-let ((executable-find (executable-find "shellcheck")))
+  (setq flycheck-sh-shellcheck-executable executable-find))
+
+(when (executable-find "bash-language-server")
+  (add-hook 'sh-mode #'lsp))
