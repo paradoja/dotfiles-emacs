@@ -1,5 +1,12 @@
 (require 'use-package)
 
+(requirements-add
+ ruby.el
+ (solargraph
+  (executable-find "solargraph")
+  "Ruby lsp server"
+  "https://github.com/castwide/solargraph"))
+
 (use-package ruby-mode
   :mode
   ("\\.rake$" "Rakefile$" "\\.gemspec$" "Gemfile$")

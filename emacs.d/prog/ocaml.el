@@ -2,6 +2,7 @@
 
 ;; ocaml and reason, for now
 
+;; TODO: fix all this
 
 ;; requirements
 ;; - Opam

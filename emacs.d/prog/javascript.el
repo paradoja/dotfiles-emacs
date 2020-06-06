@@ -1,7 +1,16 @@
 (require 'use-package)
 
-;; requirements
-;; tsun for typescript interpreter
+(requirements-add
+ javascript.el
+ (tsun
+  (executable-find "tsun")
+  "Typescript interpreter"
+  "https://github.com/HerringtonDarkholme/typescript-repl")
+ (typescript-language-server
+  (executable-find "typescript-language-server")
+  "typescript-languageserver
+   yarn global add typescript-language-server"
+  "https://github.com/theia-ide/typescript-language-server"))
 
 
 ;; typescript

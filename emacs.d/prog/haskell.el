@@ -1,8 +1,11 @@
 (require 'use-package)
 
-;; requires ghcide
-;; https://github.com/haskell/haskell-ide-engine#installation
-;; requires hastags for tags
+(requirements-add
+ haskell.el
+ (ghcide
+  (executable-find "ghcide")
+  "C/++ lsp server"
+  "https://github.com/haskell/haskell-ide-engine#installation"))
 
 (use-package haskell-mode
   :hook
