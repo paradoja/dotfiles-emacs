@@ -1,7 +1,11 @@
 (require 'use-package)
 
-;; requirements
-;; scrot for org-screenshot
+(requirements-add
+ org-mode.el
+ (scrot
+  (executable-find "scrot")
+  "scrot - cli screenshot util"
+  "https://github.com/dreamer/scrot"))
 
 (use-package org
   :hook

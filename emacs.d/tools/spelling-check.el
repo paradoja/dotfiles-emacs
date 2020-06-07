@@ -1,5 +1,11 @@
 (require 'use-package)
 
+(requirements-add
+ spelling-check.el
+ ((executable-find "aspell")
+  "Aspell"
+  "http://aspell.net/"))
+
 (use-package helm-flyspell)
 
 (ispell-change-dictionary "en_GB" t) ; default dict

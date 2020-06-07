@@ -1,6 +1,5 @@
 (require 'use-package)
 
-
 ;; TAGS
 (setq tags-revert-without-query t) ; emacs a bit less annoying with
                                    ; tags, but can be problematic on

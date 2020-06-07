@@ -1,5 +1,13 @@
 (require 'use-package)
 
+(requirements-add
+ general.el
+ (the-silver-searcher
+  (executable-find "ag")
+  "The silver searcher (ag)"
+  "https://github.com/ggreer/the_silver_searcher"))
+
+
 (use-package projectile) ; further config in projectile config file
 (use-package helm-projectile)
 

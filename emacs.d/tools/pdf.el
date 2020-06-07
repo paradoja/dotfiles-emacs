@@ -1,11 +1,15 @@
 (require 'use-package)
 
-;; requirements
-;; poppler and imagemagick
+(requirements-add
+ pdf.el
+ (imagemagick
+  (executable-find "convert")
+  "Imagemagick"
+  "https://imagemagick.org/index.php")
+ (pdf-tools-server
+  (file-executable-p pdf-info-epdfinfo-program)
+  "PDF tools server
+   (pdf-tools-install)"
+  "https://github.com/politza/pdf-tools"))
 
 (use-package pdf-tools)
-(if (file-executable-p pdf-info-epdfinfo-program)
-    (pdf-tools-install)
-  ;; ⤴ execute to install too
-  (message "pdf-tools NOT installed (to install please visit %s)"
-           buffer-file-name))
