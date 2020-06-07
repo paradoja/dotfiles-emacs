@@ -7,6 +7,12 @@
   "C/++ lsp server"
   "https://github.com/haskell/haskell-ide-engine#installation"))
 
+(defun haskell-narrow-to-defun ()
+  (interactive)
+  (let* ((start (backward-sentence))
+         (end (forward-sentence)))
+    (narrow-to-region start end)))
+
 (use-package haskell-mode
   :hook
   (haskell-mode . lsp)
@@ -34,7 +40,9 @@
    "C-i" 'haskell-process-do-info
    "C-c" 'haskell-process-cabal-build
    "C-k" 'haskell-interactive-mode-clear
-   "c"   'haskell-process-cabal))
+   "c"   'haskell-process-cabal)
+  (haskell-mode-map
+   "C-x n d" 'haskell-narrow-to-defun))
 (use-package lsp-haskell
   :config
   (setq lsp-haskell-process-path-hie "ghcide")
