@@ -9,9 +9,11 @@
 
 (defun haskell-narrow-to-defun ()
   (interactive)
-  (let* ((start (haskell-ds-backward-decl))
+  (let* ((pos (point))
+         (start (haskell-ds-backward-decl))
          (end (haskell-ds-forward-decl)))
-    (narrow-to-region start end)))
+    (narrow-to-region start end)
+    (goto-char pos)))
 
 (use-package haskell-mode
   :hook
