@@ -2,6 +2,9 @@
 
 (load-configurations
  '(general
+   lsp
+   merlin
+
    c
    clisp      ; Common Lisp
    clojure
@@ -19,12 +22,12 @@
    javascript ; js & typescript ;; todo
    lua
    nasm       ; (n)ASM
-   ocaml      ; ocaml, reason ;; todo
    puppet
    purescript
    python
    r
    racket
+   reason
    ruby       ; Ruby, Rails && Co.
    sass
    scala
