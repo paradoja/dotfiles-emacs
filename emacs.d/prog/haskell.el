@@ -9,8 +9,8 @@
 
 (defun haskell-narrow-to-defun ()
   (interactive)
-  (let* ((start (backward-sentence))
-         (end (forward-sentence)))
+  (let* ((start (haskell-ds-backward-decl))
+         (end (haskell-ds-forward-decl)))
     (narrow-to-region start end)))
 
 (use-package haskell-mode
