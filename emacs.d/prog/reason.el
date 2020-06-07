@@ -25,7 +25,7 @@
   :hook merlin-mode)
 
 
-(-when-let ((rls (executable-find "reason-language-server")))
+(-when-let (rls (executable-find "reason-language-server"))
   (lsp-register-client
    (make-lsp-client :new-connection (lsp-stdio-connection rls)
                     :major-modes '(reason-mode)
