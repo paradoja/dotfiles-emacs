@@ -1,5 +1,9 @@
 (require 'use-package)
 
+;; requirements below
+
+(use-package pdf-tools)
+
 (requirements-add
  pdf.el
  (imagemagick
@@ -11,5 +15,3 @@
   "PDF tools server
    (pdf-tools-install)"
   "https://github.com/politza/pdf-tools"))
-
-(use-package pdf-tools)
