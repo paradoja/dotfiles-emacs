@@ -2,6 +2,10 @@
 
 (requirements-add
  ruby.el
+ (robe ;; not sure if useful together with solargraph
+  (executable-find "pry")
+  "Code navigation and completion"
+  "https://github.com/dgutov/robe")
  (solargraph
   (executable-find "solargraph")
   "Ruby lsp server"
@@ -16,11 +20,10 @@
   ("\\.rake$" "Rakefile$" "\\.gemspec$" "Gemfile$")
   :init
   (add-to-list 'rtog/mode-repl-alist '(ruby-mode . inf-ruby))
-  :config
-  (add-hook 'ruby-mode-hook
-            (lambda () (ruby-electric-mode t)))
-  (add-hook 'ruby-mode-hook
-            (lambda () (flyspell-mode))))
+  :hook
+  ((ruby-mode . (lambda () (ruby-electric-mode t)))
+   (ruby-mode . (lambda () (flyspell-mode)))
+   (ruby-mode . lsp)))
 (use-package ruby-electric)
 
 (use-package rspec-mode
@@ -28,6 +31,7 @@
   (rspec-install-snippets))
 (use-package inf-ruby)
 (use-package ruby-tools)
+
 (use-package robe
   :init
   (eval-after-load 'company
