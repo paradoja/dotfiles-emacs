@@ -5,7 +5,11 @@
  (solargraph
   (executable-find "solargraph")
   "Ruby lsp server"
-  "https://github.com/castwide/solargraph"))
+  "https://github.com/castwide/solargraph")
+ (rbenv
+  (f-dir? (f-join (getenv "HOME") ".rbenv"))
+  "rbenv"
+  "https://github.com/rbenv/rbenv"))
 
 (use-package ruby-mode
   :mode
@@ -31,6 +35,5 @@
   (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
     (rvm-activate-corresponding-ruby)))
 (use-package ruby-hash-syntax)
-(use-package rvm
-  :config
-  (rvm-use-default))
+(use-package rbenv
+  :hook (ruby-mode . rbenv-mode))
