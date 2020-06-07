@@ -94,7 +94,10 @@
           forward-char
           backward-char
           previous-line
-          next-line)))
+          next-line
+          right-char
+          left-char)))
+(setq vc-follow-symlinks t)
 
 (require 'iso-transl)
 (setq-default indent-tabs-mode nil) ; no tabs
