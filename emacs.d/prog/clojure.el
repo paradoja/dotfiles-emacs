@@ -1,21 +1,44 @@
 (require 'use-package)
 
+(requirements-add
+ clojure.el
+ (lein
+  (executable-find "lein")
+  "Leiningen"
+  "https://github.com/technomancy/leiningen")
+ (clojure-lsp
+  (executable-find "clojure-lsp")
+  "Clojure LSP"
+  "https://github.com/technomancy/leiningen"))
+
 (use-package clojure-mode
-  :init
-  (add-hook 'clojure-mode-hook
-            (lambda () (paredit-mode +1))))
+  :hook
+  (((clojure-mode
+     clojurec-mode
+     clojurescipt-mode) . lsp)
+   ((clojure-mode
+     clojurec-mode
+     clojurescipt-mode) . paredit-mode))
+  :config
+  (dolist (m '(clojure-mode
+               clojurec-mode
+               clojurescript-mode
+               clojurex-mode))
+    (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+  (setq lsp-enable-indentation nil
+        lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
 
 (use-package cider
-  :init
-  (add-hook 'cider-mode-hook #'eldoc-mode))
+  :hook
+  (cider-mode . eldoc-mode))
 
 
 (use-package clj-refactor
-  :init
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (clj-refactor-mode 1)
-              (cljr-add-keybindings-with-prefix "C-c C-m"))))
+  :hook
+  (clojure-mode .
+                (lambda ()
+                  (clj-refactor-mode 1)
+                  (cljr-add-keybindings-with-prefix "C-c C-m"))))
 
 ;; ;; highlight expression on eval
 ;; (require 'highlight)
