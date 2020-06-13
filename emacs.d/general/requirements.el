@@ -14,6 +14,20 @@
 ;; This package provides a simple way of tracking required external
 ;; dependencies on emacs load. To use it...
 
+;;;; TODO: if the system doesn't change, calling requirements-add
+;;;; should be idempotent. And if the system changes, calling it
+;;;; should update the values to the latest state
+;;;; (ie. requirements-unmet-requirements should be updated to the
+;;;; current "real" value).
+
+;;;; TODO: Calls to requirements-add should not be immediately
+;;;; evaluated, but stored and evaluated on requirement, and possibly
+;;;; updated then (so that all system requirements, or module
+;;;; requirements are evaluated when needed).
+
+;;;; TODO: Have interactive calls to get a module unmet
+;;;; requirements. It would ideally default to the current one.
+
 (provide 'requirements)
 
 (defvar requirements-unmet-requirements '()

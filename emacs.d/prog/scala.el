@@ -1,5 +1,11 @@
 (require 'use-package)
 
+(requirements-add
+ (metals
+  (executable-find "metals-emacs")
+  "Metals (scala)"
+  "https://github.com/scalameta/metals"))
+
 (use-package scala-mode
   :mode "\\.s\\(cala\\|bt\\)$")
 
@@ -7,7 +13,7 @@
   :after scala-mode
   :demand t
   :hook (scala-mode . lsp)
-  :init (setq lsp-scala-server-command "~/bin/metals-emacs"))
+  :init (setq lsp-scala-server-command (executable-find "metals-emacs")))
 
 (use-package sbt-mode
   :commands sbt-start sbt-command
