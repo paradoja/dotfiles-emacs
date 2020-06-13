@@ -107,6 +107,13 @@
           left-char)))
 (setq vc-follow-symlinks t)
 
+(defun blulaktuko/exit-only-on-arg (arg)
+  (interactive "P")
+  (when arg
+    (save-buffers-kill-terminal)))
+(general-def
+  "C-x C-c" 'blulaktuko/exit-only-on-arg)
+
 (require 'iso-transl)
 (setq-default indent-tabs-mode nil) ; no tabs
 (global-font-lock-mode 1)
