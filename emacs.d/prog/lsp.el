@@ -22,7 +22,7 @@
 (use-package lsp-treemacs
   :after treemacs
   :config
-  (lsp-metals-treeview-enable t)
+  (setq lsp-metals-treeview-enable t)
   (setq lsp-metals-treeview-show-when-views-received t))
 
 (use-package lsp-origami
