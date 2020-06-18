@@ -22,6 +22,7 @@
    javascript ; js & typescript ;; todo
    lua
    nasm       ; (n)ASM
+   nix
    puppet
    purescript
    python
