@@ -14,12 +14,6 @@
 ;; This package provides a simple way of tracking required external
 ;; dependencies on emacs load. To use it...
 
-;;;; TODO: if the system doesn't change, calling requirements-add
-;;;; should be idempotent. And if the system changes, calling it
-;;;; should update the values to the latest state
-;;;; (ie. requirements-unmet-requirements should be updated to the
-;;;; current "real" value).
-
 ;;;; TODO: Calls to requirements-add should not be immediately
 ;;;; evaluated, but stored and evaluated on requirement, and possibly
 ;;;; updated then (so that all system requirements, or module
@@ -57,10 +51,18 @@
                       (unless (eval f)
                         (list dep-name desc url))))
                   (quote ,deps)))
-       (push
-        (cons ',unit
-              missing-dependencies)
-        requirements-unmet-requirements))))
+       (setq requirements-unmet-requirements
+             (sort (cons
+                    (cons ',unit
+                          missing-dependencies)
+                    (assoc-delete-all ',unit
+                                      requirements-unmet-requirements))
+                   (lambda (a b) (let ((sa (symbol-name (car a)))
+                                       (sb (symbol-name (car b))))
+                                   (if (string= sa sb)
+                                       (string< (symbol-name (car (cdr a)))
+                                                (symbol-name (car (cdr b))))
+                                     (string< sa sb)))))))))
 
 (defun requirements-units-missing-dependencies ()
   (interactive)
