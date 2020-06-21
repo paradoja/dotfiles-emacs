@@ -36,37 +36,46 @@
   information about the unit.")
 
 (require 'dash)
+
+(defmacro requirements/assoc-add-and-sort (list key value pred?)
+  (let ((clean-list (make-symbol "clean-list")))
+      `(let ((,clean-list
+              (assoc-delete-all ,key
+                                ,list)))
+         (setq ,list
+               (if (eval ,pred?)
+                   (sort (cons
+                          (cons ,key
+                                ,value)
+                          ,clean-list)
+                         (lambda (a b) (let ((sa (symbol-name (car a)))
+                                             (sb (symbol-name (car b))))
+                                         (if (string= sa sb)
+                                             (string< (symbol-name (car (cdr a)))
+                                                      (symbol-name (car (cdr b))))
+                                           (string< sa sb)))))
+                 ,clean-list)))))
+
 (defmacro requirements-add (unit &rest deps)
-  `(progn
-     (push
-      (cons ',unit
-            `((file . ,(buffer-file-name))
-              (date . ,(current-time-string))))
-      requirements-required-unit)
-     (let ((missing-dependencies
-            (mapcan
-             (lambda (dep)
-               (-let [(dep-name f desc url install-inst)
-                      dep]
-                 (unless (eval f)
-                   (list dep-name desc url))))
-             (quote ,deps)))
-           (unmet-requirements-list
-            (assoc-delete-all ',unit
-                              requirements-unmet-requirements)))
-       (setq requirements-unmet-requirements
-             (if missing-dependencies
-                 (sort (cons
-                        (cons ',unit
-                              missing-dependencies)
-                        unmet-requirements-list)
-                       (lambda (a b) (let ((sa (symbol-name (car a)))
-                                           (sb (symbol-name (car b))))
-                                       (if (string= sa sb)
-                                           (string< (symbol-name (car (cdr a)))
-                                                    (symbol-name (car (cdr b))))
-                                         (string< sa sb)))))
-               unmet-requirements-list)))))
+  (let ((missing-dependencies (make-symbol "missing-dependencies")))
+   `(progn
+      (requirements/assoc-add-and-sort requirements-required-unit
+                                       ',unit
+                                       `((file . ,(buffer-file-name))
+                                         (date . ,(current-time-string)))
+                                       t)
+      (let ((,missing-dependencies
+             (mapcan
+              (lambda (dep)
+                (-let [(dep-name f desc url install-inst)
+                       dep]
+                  (unless (eval f)
+                    (list dep-name desc url))))
+              (quote ,deps))))
+        (requirements/assoc-add-and-sort requirements-unmet-requirements
+                                         ',unit
+                                         ,missing-dependencies
+                                         (-const ,missing-dependencies))))))
 
 (defun requirements-units-missing-dependencies ()
   (interactive)
