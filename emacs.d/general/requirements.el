@@ -43,26 +43,30 @@
             `((file . ,(buffer-file-name))
               (date . ,(current-time-string))))
       requirements-required-unit)
-     (-when-let (missing-dependencies
-                 (mapcan
-                  (lambda (dep)
-                    (-let [(dep-name f desc url)
-                           dep]
-                      (unless (eval f)
-                        (list dep-name desc url))))
-                  (quote ,deps)))
+     (let ((missing-dependencies
+            (mapcan
+             (lambda (dep)
+               (-let [(dep-name f desc url install-inst)
+                      dep]
+                 (unless (eval f)
+                   (list dep-name desc url))))
+             (quote ,deps)))
+           (unmet-requirements-list
+            (assoc-delete-all ',unit
+                              requirements-unmet-requirements)))
        (setq requirements-unmet-requirements
-             (sort (cons
-                    (cons ',unit
-                          missing-dependencies)
-                    (assoc-delete-all ',unit
-                                      requirements-unmet-requirements))
-                   (lambda (a b) (let ((sa (symbol-name (car a)))
-                                       (sb (symbol-name (car b))))
-                                   (if (string= sa sb)
-                                       (string< (symbol-name (car (cdr a)))
-                                                (symbol-name (car (cdr b))))
-                                     (string< sa sb)))))))))
+             (if missing-dependencies
+                 (sort (cons
+                        (cons ',unit
+                              missing-dependencies)
+                        unmet-requirements-list)
+                       (lambda (a b) (let ((sa (symbol-name (car a)))
+                                           (sb (symbol-name (car b))))
+                                       (if (string= sa sb)
+                                           (string< (symbol-name (car (cdr a)))
+                                                    (symbol-name (car (cdr b))))
+                                         (string< sa sb)))))
+               unmet-requirements-list)))))
 
 (defun requirements-units-missing-dependencies ()
   (interactive)
