@@ -4,19 +4,19 @@
  lua.el
  (lua-lsp
   (executable-find "lua-lsp")
-  "Lua lsp
-   luarocks install --local --server=http://luarocks.org/dev lua-lsp"
-  "https://github.com/Alloyed/lua-lsp")
+  "Lua lsp"
+  "https://github.com/Alloyed/lua-lsp"
+  "luarocks install --local --server=http://luarocks.org/dev lua-lsp")
  (luacheck
   (executable-find "luacheck")
-  "Lua linter
-   luarocks install --local luacheck"
-  "https://github.com/mpeterv/luacheck")
+  "Lua linter"
+  "https://github.com/mpeterv/luacheck"
+  "luarocks install --local luacheck")
  (lcf
   (executable-find "lua.reformat")
-  "Lua formatter
-   luarocks install --local lcf"
-  "https://luarocks.org/modules/martin-eden/lcf"))
+  "Lua formatter"
+  "https://luarocks.org/modules/martin-eden/lcf"
+  "luarocks install --local lcf"))
 
 (use-package lua-mode)
 (use-package company-lua
