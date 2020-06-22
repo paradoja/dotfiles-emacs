@@ -61,7 +61,9 @@
    `(progn
       (requirements/assoc-add-and-sort requirements-required-unit
                                        ',unit
-                                       `((file . ,(buffer-file-name))
+                                       `((file . ,(if load-in-progress
+                                                      load-file-name
+                                                    (buffer-file-name)))
                                          (date . ,(current-time-string)))
                                        t)
       (let ((,missing-dependencies
