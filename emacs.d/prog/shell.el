@@ -8,12 +8,12 @@
   "https://www.shellcheck.net/")
  (bash-language-server
   (executable-find "bash-language-server")
-  "Bash language server
-   yarn global add bash-language-server"
-  "https://github.com/bash-lsp/bash-language-server"))
+  "Bash language server"
+  "https://github.com/bash-lsp/bash-language-server"
+  "yarn global add bash-language-server"))
 
-(-when-let ((executable-find (executable-find "shellcheck")))
-  (setq flycheck-sh-shellcheck-executable executable-find))
+(-when-let ((shellcheck-location (executable-find "shellcheck")))
+  (setq flycheck-sh-shellcheck-executable shellcheck-location))
 
 (when (executable-find "bash-language-server")
   (add-hook 'sh-mode #'lsp))
