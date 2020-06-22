@@ -1,6 +1,7 @@
 (require 'use-package)
 
 (requirements-add
+ scala.el
  (metals
   (executable-find "metals-emacs")
   "Metals (scala)"
