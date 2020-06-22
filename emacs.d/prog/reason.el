@@ -3,11 +3,13 @@
  (reason-language-server
   (executable-find "reason-language-server")
   "ReasonML language server"
-  "https://github.com/jaredly/reason-language-server")
+  "https://github.com/jaredly/reason-language-server"
+  "# check https://github.com/jaredly/reason-language-server/releases")
  (reason-cli
   (executable-find "ocamlmerlin-reason")
   "ReasonML toolchain"
-  "https://github.com/reasonml/reason-cli"))
+  "https://github.com/reasonml/reason-cli"
+  "yarn global add reason-cli@latest-linux"))
 
 (use-package reason-mode
   :hook

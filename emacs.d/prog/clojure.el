@@ -5,11 +5,13 @@
  (lein
   (executable-find "lein")
   "Leiningen"
-  "https://github.com/technomancy/leiningen")
+  "https://github.com/technomancy/leiningen"
+  "nix-env -i leiningen")
  (clojure-lsp
   (executable-find "clojure-lsp")
   "Clojure LSP"
-  "https://github.com/technomancy/leiningen"))
+  "https://github.com/snoe/clojure-lsp"
+  "nix-env -i clojure-lsp"))
 
 (use-package clojure-mode
   :hook

@@ -5,7 +5,8 @@
  (metals
   (executable-find "metals-emacs")
   "Metals (scala)"
-  "https://github.com/scalameta/metals"))
+  "https://github.com/scalameta/metals"
+  "# check https://scalameta.org/metals/docs/editors/emacs.html"))
 
 (use-package scala-mode
   :mode "\\.s\\(cala\\|bt\\)$")

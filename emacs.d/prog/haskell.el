@@ -4,8 +4,8 @@
  haskell.el
  (ghcide
   (executable-find "ghcide")
-  "C/++ lsp server"
-  "https://github.com/haskell/haskell-ide-engine#installation"))
+  "Haskell lsp server"
+  "https://github.com/haskell/haskell-ide-engine"))
 
 (defun haskell-narrow-to-defun ()
   (interactive)

@@ -5,12 +5,13 @@
  (tsun
   (executable-find "tsun")
   "Typescript interpreter"
-  "https://github.com/HerringtonDarkholme/typescript-repl")
+  "https://github.com/HerringtonDarkholme/typescript-repl"
+  "yarn global add tsun")
  (typescript-language-server
   (executable-find "typescript-language-server")
-  "typescript-languageserver
-   yarn global add typescript-language-server"
-  "https://github.com/theia-ide/typescript-language-server"))
+  "typescript-languageserver"
+  "https://github.com/theia-ide/typescript-language-server"
+  "yarn global add typescript-language-server"))
 
 
 ;; typescript

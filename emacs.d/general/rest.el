@@ -5,8 +5,8 @@
  (the-silver-searcher
   (executable-find "ag")
   "The silver searcher (ag)"
-  "https://github.com/ggreer/the_silver_searcher"))
-
+  "https://github.com/ggreer/the_silver_searcher"
+  "nix-env -i silver-searcher"))
 
 (use-package projectile) ; further config in projectile config file
 (use-package helm-projectile)

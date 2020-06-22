@@ -5,15 +5,18 @@
  (robe ;; not sure if useful together with solargraph
   (executable-find "pry")
   "Code navigation and completion"
-  "https://github.com/dgutov/robe")
+  "https://github.com/dgutov/robe"
+  "gem install pry")
  (solargraph
   (executable-find "solargraph")
   "Ruby lsp server"
-  "https://github.com/castwide/solargraph")
+  "https://github.com/castwide/solargraph"
+  "gem install solargraph")
  (rbenv
   (f-dir? (f-join (getenv "HOME") ".rbenv"))
   "rbenv"
-  "https://github.com/rbenv/rbenv"))
+  "https://github.com/rbenv/rbenv"
+  "# check https://github.com/rbenv/rbenv-installer; or install manually"))
 
 (use-package ruby-mode
   :mode

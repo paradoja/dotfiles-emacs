@@ -5,9 +5,9 @@
  web-mode.el
  (html-languageserver
   (executable-find "html-languageserver")
-  "html-languageserver
-   yarn global add vscode-html-languageserver-bin"
-  "https://github.com/vscode-langservers/vscode-css-languageserver-bin"))
+  "html-languageserver"
+  "https://github.com/vscode-langservers/vscode-css-languageserver-bin"
+  "yarn global add vscode-html-languageserver-bin"))
 
 (use-package emmet-mode)
 

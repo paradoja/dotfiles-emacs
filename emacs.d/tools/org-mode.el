@@ -5,7 +5,8 @@
  (scrot
   (executable-find "scrot")
   "scrot - cli screenshot util"
-  "https://github.com/dreamer/scrot"))
+  "https://github.com/dreamer/scrot"
+  "nix-env -i scrot"))
 
 (use-package org
   :hook

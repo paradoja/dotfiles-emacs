@@ -28,27 +28,27 @@
 
 (requirements-add
  merlin.el
+ (opam
+  (executable-find "opam")
+  "Ocaml package manager"
+  "https://opam.ocaml.org/"
+  "# check https://opam.ocaml.org/doc/Install.html")
  (merlin
   (not (null merlin-command))
   "Merlin & merlin mode"
-  "https://github.com/ocaml/merlin")
- (opam
-  (executable-find "opam")
-  "Opam
-   opam update
-   opam switch create 4.06.1
-  "
-  "https://opam.ocaml.org/")
+  "https://github.com/ocaml/merlin"
+  "opam install merlin")
  (bucklescript-compiler
   (executable-find "bsc")
   "Bucklescript compiler
-   Bucklescript is the ocaml/reason -> js compiler
-   yarn global add bs-platform")
+   Bucklescript is the ocaml/reason -> js compiler"
+  "https://github.com/bucklescript/bucklescript"
+  "yarn global add bs-platform")
  (utop
   (executable-find "utop")
-  "utop - ocaml interpreter
-  #opam install utop # this is included in reason-cli"
-  "https://opam.ocaml.org/blog/about-utop/"))
+  "utop - ocaml interpreter"
+  "https://opam.ocaml.org/blog/about-utop/"
+  "#opam install utop # this is included in reason-cli"))
 
 (require 'opam-user-setup
          (f-join user-emacs-directory "prog" "ocaml" "opam-user-setup.el"))
