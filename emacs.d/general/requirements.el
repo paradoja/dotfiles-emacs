@@ -43,7 +43,7 @@
               (assoc-delete-all ,key
                                 ,list)))
          (setq ,list
-               (if (eval ,pred?)
+               (if ,pred?
                    (sort (cons
                           (cons ,key
                                 ,value)
@@ -75,7 +75,7 @@
         (requirements/assoc-add-and-sort requirements-unmet-requirements
                                          ',unit
                                          ,missing-dependencies
-                                         (-const ,missing-dependencies))))))
+                                         ,missing-dependencies)))))
 
 (defun requirements-units-missing-dependencies ()
   (interactive)
