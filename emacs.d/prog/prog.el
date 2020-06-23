@@ -30,6 +30,7 @@
    racket
    reason
    ruby       ; Ruby, Rails && Co.
+   rust
    sass
    scala
    scheme
