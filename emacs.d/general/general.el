@@ -8,6 +8,7 @@
 (load-configurations
  '(helm
    visuals
+   exwm
 
    rest
    shortcuts)) ; rest & shortcuts should go last
