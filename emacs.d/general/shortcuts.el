@@ -12,9 +12,11 @@
   ("o" hydra-shortcuts/org/body "org")
   ("s" hydra-shortcuts/scratch "scratch"))
 
-(defun hydra-shortcuts/scratch ()
-  (interactive)
-  (switch-to-buffer "*scratch*"))
+(defun hydra-shortcuts/scratch (arg)
+  (interactive "P")
+  (switch-to-buffer "*scratch*")
+  (if arg
+      (delete-other-windows)))
 
 (defhydra hydra-shortcuts/emacs (:color blue)
   ("i" (shortcuts/open-emacs-path "init.el") "init.el")
