@@ -1,4 +1,5 @@
 (require 'hydra)
+(require 'f)
 
 (defun shortcuts/open-emacs-path (&rest file)
   (find-file (apply #'f-join user-emacs-directory file)))
@@ -10,7 +11,8 @@
                                       :color blue)
   ("e" hydra-shortcuts/emacs/body "emacs")
   ("o" hydra-shortcuts/org/body "org")
-  ("s" hydra-shortcuts/scratch "scratch"))
+  ("s" hydra-shortcuts/scratch "scratch")
+  ("d" hydra-shortcuts/dotfiles/body "dotfiles"))
 
 (defun hydra-shortcuts/scratch (arg)
   (interactive "P")
@@ -33,3 +35,16 @@
   ("p" (shortcuts/open-org-path "main" "periodic.org") "periodic.org")
   ("c" (shortcuts/open-org-path "main" "chores.org") "chores.el")
   ("e" (shortcuts/open-org-path "main" "emacs.org") "emacs.org"))
+
+(eval-and-compile
+  (let* ((dirs (mapcar #'f-slash (f-directories (f-join (getenv "HOME") "dotfiles"))))
+         (options (mapcar (lambda (p)
+                            (let ((name (f-filename p)))
+                              (list
+                               ;; TODO: avoid repetitions
+                               (substring name 0 1)
+                               `(helm-find-files-1 ,p)
+                               name)))
+                          dirs)))
+    (eval `(defhydra hydra-shortcuts/dotfiles (:color blue)
+             ,@options))))
