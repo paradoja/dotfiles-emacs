@@ -43,7 +43,8 @@
                               (list
                                ;; TODO: avoid repetitions
                                (substring name 0 1)
-                               `(helm-find-files-1 ,p)
+                               `(let ((default-directory ,p))
+                                  (helm-projectile-find-file))
                                name)))
                           dirs)))
     (eval `(defhydra hydra-shortcuts/dotfiles (:color blue)
