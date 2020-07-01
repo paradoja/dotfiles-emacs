@@ -27,6 +27,8 @@
   :config
   (when (executable-find "brittany")
     (add-hook 'haskell-mode-hook #'format-all-mode))
+  (add-to-list 'magic-mode-alist
+               '("#!/usr/bin/env +stack" . haskell-mode))
   :custom
   ((haskell-tags-on-save  t)
    (haskell-compile-cabal-build-command "stack build")
