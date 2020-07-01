@@ -57,4 +57,6 @@
  :bind
  (:map haskell-mode-map
    ("C-c r" . ormolu-format-buffer)))
+(use-package flymake-hlint
+  :hook (haskell-mode . flymake-hlint-load))
 ;; (use-package shakespeare-mode) ; for Yesod's templates
