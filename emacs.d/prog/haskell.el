@@ -24,9 +24,6 @@
                    (set (make-local-variable 'company-backends)
                         (append '((company-capf company-dabbrev-code))
                                 company-backends)))))
-  :config
-  (when (executable-find "brittany")
-    (add-hook 'haskell-mode-hook #'format-all-mode))
   :custom
   ((haskell-tags-on-save  t)
    (haskell-compile-cabal-build-command "stack build")
@@ -52,4 +49,9 @@
   ;; Comment/uncomment this line to see interactions between lsp client/server.
   ;;(setq lsp-log-io t)
   )
+(use-package ormolu
+ :hook (haskell-mode . ormolu-format-on-save-mode)
+ :bind
+ (:map haskell-mode-map
+   ("C-c r" . ormolu-format-buffer)))
 ;; (use-package shakespeare-mode) ; for Yesod's templates
