@@ -40,3 +40,4 @@ flycheck*
 /emacs.d/.dap-breakpoints
 /emacs.d/.cache/
 /emacs.d/tools/trello/paradoja.el
+/emacs.d/projects
