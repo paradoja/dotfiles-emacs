@@ -5,7 +5,12 @@
  (ghcide
   (executable-find "ghcide")
   "Haskell lsp server"
-  "https://github.com/haskell/haskell-ide-engine"))
+  "https://github.com/haskell/haskell-ide-engine")
+ (hlint
+  (executable-find "hlint")
+  "Haskell linter"
+  ""
+  "stack install hlint"))
 
 (defun haskell-narrow-to-defun ()
   (interactive)
@@ -18,6 +23,9 @@
 (use-package haskell-mode
   :hook
   (haskell-mode . lsp)
+  ;; TODO: clean this, it doesn't really make sense
+  (haskell-mode . (lambda ()
+                    (flycheck-add-next-checker 'lsp 'haskell-hlint)))
   ((interactive-haskell-mode)
    (haskell-mode .
                  (lambda ()
@@ -57,6 +65,5 @@
  :bind
  (:map haskell-mode-map
    ("C-c r" . ormolu-format-buffer)))
-(use-package flymake-hlint
-  :hook (haskell-mode . flymake-hlint-load))
+
 ;; (use-package shakespeare-mode) ; for Yesod's templates
