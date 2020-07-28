@@ -13,3 +13,12 @@
 (require 'shell)
 
 (define-key shell-mode-map (kbd "C-c C-l") 'helm-comint-input-ring)
+
+
+;;;; M-x vterm
+(use-package vterm
+  :config
+  (setq vterm-buffer-name-string "vterm - %s")
+  :general
+  (vterm-mode-map
+   "C-y" 'vterm-yank))
