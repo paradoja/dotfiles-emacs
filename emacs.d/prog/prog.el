@@ -5,6 +5,7 @@
    lsp
    merlin
 
+   agda
    c
    clisp      ; Common Lisp
    clojure
