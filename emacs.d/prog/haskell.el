@@ -2,14 +2,16 @@
 
 (requirements-add
  haskell.el
- (ghcide
-  (executable-find "ghcide")
+ (haskell-language-server
+  (executable-find "haskell-language-server-wrapper")
   "Haskell lsp server"
-  "https://github.com/haskell/haskell-ide-engine")
+  "https://github.com/haskell/haskell-language-server"
+  "Install wrapper and versions from
+   https://github.com/haskell/haskell-language-server/releases")
  (hlint
   (executable-find "hlint")
   "Haskell linter"
-  ""
+  "https://github.com/ndmitchell/hlint"
   "stack install hlint"))
 
 (defun haskell-narrow-to-defun ()
@@ -55,15 +57,9 @@
    "C-x n d" 'haskell-narrow-to-defun))
 (use-package lsp-haskell
   :config
-  (setq lsp-haskell-process-path-hie "ghcide")
-  (setq lsp-haskell-process-args-hie '())
+  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
   ;; Comment/uncomment this line to see interactions between lsp client/server.
   ;;(setq lsp-log-io t)
   )
-(use-package ormolu
- :hook (haskell-mode . ormolu-format-on-save-mode)
- :bind
- (:map haskell-mode-map
-   ("C-c r" . ormolu-format-buffer)))
 
 ;; (use-package shakespeare-mode) ; for Yesod's templates
