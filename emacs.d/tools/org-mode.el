@@ -67,6 +67,8 @@
 ;; Agenda
 (defvar my/org-agenda-default-tags
   '("-objectives"))
+(setq org-agenda-skip-deadline-if-done t
+      org-agenda-skip-scheduled-if-done t)
 
 ;;; (all-the-icons-insert-icons-for 'faicon) inserts all faicon icons to check
 (setq org-agenda-category-icon-alist
