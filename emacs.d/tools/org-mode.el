@@ -53,7 +53,9 @@
 (general-def org-mode-map
   :prefix "C-c"
   "!" nil ; C-c ! is taken by flycheck
-  "! d" 'org-time-stamp-inactive
+  "." nil ; unload C-c .
+  ". ." 'org-time-stamp
+  ". d" 'org-time-stamp-inactive
   "M-RET" 'org-insert-todo-heading)
 
 ;; Source blocks
