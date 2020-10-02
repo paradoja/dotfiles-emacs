@@ -17,3 +17,5 @@
 
 (when (executable-find "bash-language-server")
   (add-hook 'sh-mode #'lsp))
+
+(use-package fish-mode)
