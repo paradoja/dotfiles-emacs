@@ -31,7 +31,6 @@
 
 ;; Other helm things
 
-(use-package helm)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
 

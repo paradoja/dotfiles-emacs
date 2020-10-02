@@ -6,7 +6,7 @@
 (load-emacs-conf-file "general/org-fix.el")
 
 (load-configurations
- '(helm
+ '(general-helm
    visuals
 
    rest
