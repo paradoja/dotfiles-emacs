@@ -6,6 +6,11 @@
   "Aspell"
   "http://aspell.net/"))
 
+(let ((shell-aspell-conf (shell-command-to-string "echo -n $ASPELL_CONF")))
+  (if (and (not (getenv "ASPELL_CONF"))
+           (not (string= "" shell-aspell-conf)))
+     (setenv "ASPELL_CONF" shell-aspell-conf)))
+
 (use-package helm-flyspell)
 
 (ispell-change-dictionary "british" t) ; default dict
