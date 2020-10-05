@@ -47,6 +47,9 @@
 ;;; General use
 (use-package evil)
 (use-package zone-nyan) ; Nyan cat zone
+(use-package direnv
+ :config
+ (direnv-mode))
 
 (use-package visual-regexp
   :config
