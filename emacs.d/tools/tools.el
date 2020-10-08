@@ -18,6 +18,7 @@
    magit
    markdown
    mc
+   research
    paredit
    pdf
    plantuml
