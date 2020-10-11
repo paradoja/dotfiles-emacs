@@ -9,5 +9,6 @@
  '(general-helm
    visuals
 
+   evil
    rest
    shortcuts)) ; rest & shortcuts should go last

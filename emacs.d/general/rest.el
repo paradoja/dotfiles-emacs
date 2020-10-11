@@ -45,7 +45,6 @@
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 
 ;;; General use
-(use-package evil)
 (use-package zone-nyan) ; Nyan cat zone
 (use-package direnv
  :config
