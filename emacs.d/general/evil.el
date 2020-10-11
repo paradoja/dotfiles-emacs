@@ -1,6 +1,8 @@
 (require 'use-package)
 
-(use-package evil)
+(use-package evil
+  :config
+  (setq evil-default-state 'emacs))
 
 (use-package evil-magit
   :after magit)
