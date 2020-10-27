@@ -1,6 +1,10 @@
 (defvar key-chord-prefixes
   '("º" "<"))
 
+(defun toggle-literate-calc-minor-mode ()
+  (interactive)
+  (literate-calc-minor-mode 'toggle))
+
 (defvar key-chord-combinations
   '(
     ("u" universal-argument) ; C-u... for those moments
@@ -10,7 +14,6 @@
     ("h" toggle-hightlight-indentation-mode)
     ("l" hl-line-mode)
     ("j" ace-jump-mode)
-    ("k" ace-jump-char-mode)
     ("c" ace-mc-add-multiple-cursors)
     (" " whitespace-mode)
     ("s" subword-mode)
@@ -21,6 +24,7 @@
     ("o" hydra-shortcuts/body)
     ("p" treemacs)
     ("t" treemacs-projectile)
+    ("0" toggle-literate-calc-minor-mode)
     ))
 
 (defun set-chords-for-key (prefix-key &optional combinations)
