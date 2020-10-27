@@ -227,3 +227,6 @@ changes in the org-agenda directories. Relies on
   (deft-default-extension "org")
   (deft-directory org-roam-directory)
   (deft-use-filename-as-title t))
+
+;; literate-calc
+(use-package literate-calc-mode)
