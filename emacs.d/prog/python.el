@@ -22,7 +22,12 @@
   (executable-find "pyls")
   "Python lsp server"
   "https://github.com/palantir/python-language-server"
-  "pip install 'python-language-server[all]'"))
+  "pip install 'python-language-server[all]'")
+ (poetry
+  (executable-find "poetry")
+  "Python package management"
+  "https://python-poetry.org/"
+  "Check https://python-poetry.org/docs/"))
 
 (setq python-indent-guess-indent-offset-verbose nil)
 (setq elpy-rpc-python-command (or (executable-find "python3")
