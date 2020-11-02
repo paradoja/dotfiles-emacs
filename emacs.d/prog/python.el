@@ -29,3 +29,4 @@
                                   (executable-find "python")))
 (add-hook 'python-mode-hook #'lsp)
 (elpy-enable)
+(use-package poetry)
