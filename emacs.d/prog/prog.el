@@ -18,6 +18,7 @@
    elm
    erlang
    go
+   graphql
    haskell
    io
    javascript ; js & typescript ;; todo
