@@ -24,7 +24,8 @@
 
 (use-package haskell-mode
   :hook
-  (haskell-mode . lsp)
+  ((before-save . lsp-format-buffer)
+   (haskell-mode . lsp))
   ;; TODO: clean this, it doesn't really make sense
   (haskell-mode . (lambda ()
                     (flycheck-add-next-checker 'lsp 'haskell-hlint)))
