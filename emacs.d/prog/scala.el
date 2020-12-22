@@ -14,8 +14,7 @@
 (use-package lsp-scala
   :after scala-mode
   :demand t
-  :hook ((before-save . lsp-format-buffer)
-         (scala-mode . lsp))
+  :hook (scala-mode . lsp)
   :init (setq lsp-scala-server-command (executable-find "metals-emacs")))
 
 (use-package sbt-mode

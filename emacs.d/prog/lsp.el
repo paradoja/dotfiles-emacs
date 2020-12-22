@@ -1,6 +1,7 @@
 ;;; langserver
 (setq lsp-keymap-prefix "C-c C-l")
 (use-package lsp-mode
+  :hook (before-save . lsp-format-if-you-can)
   :commands lsp
   :config (setq lsp-prefer-flymake nil))
 (use-package lsp-ui
@@ -27,3 +28,7 @@
 
 (use-package lsp-origami
   :hook (lsp-after-open . lsp-origami-try-enable))
+
+(defun lsp-format-if-you-can ()
+    (when (lsp--capability "documentFormattingProvider")
+      (lsp-format-buffer)))

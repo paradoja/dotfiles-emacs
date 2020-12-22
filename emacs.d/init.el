@@ -1,4 +1,3 @@
-(defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))
@@ -47,11 +46,22 @@
  ;; If there is more than one, they won't work right.
  '(org-trello-current-prefix-keybinding "C-c o")
  '(safe-local-variable-values
-   (quote
-    ((ispell-dictionary . "es")))))
+   '((eval add-to-list 'lsp-file-watch-ignored "[/\\\\]resources[/\\\\]dom5inspector$")
+     (haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4)
+     (eval progn
+           (add-to-list 'reftex-default-bibliography
+                        (f-join
+                         (getenv "HOME")
+                         "proyectos/uoc/resources/library.bib")))
+     (eval progn
+           (setq markdown-open-command
+                 (lambda nil
+                   (compile "make open"))))
+     (ispell-dictionary . "es"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((((class color) (min-colors 89)) (:foreground "#d3d3d3" :background "#000000")))))
+ )
