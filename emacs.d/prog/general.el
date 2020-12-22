@@ -26,6 +26,7 @@
 (use-package feature-mode)
 
 (use-package highlight-indentation)
+(use-package vline)
 
 
 ;; TODO: allow use of this + (or besides) helm
