@@ -1,7 +1,10 @@
 (use-package magit)
 (require 'config-utils)
 
-(global-set-key (kbd "C-,") 'magit-status)
+(general-def
+  "C-," 'magit-status
+  "M-[ 1 ; 5 l" 'magit-status ; for silly terminals
+  )
 (defvar magit-last-seen-setup-instructions "1.4.0")
 
 (add-hook 'git-gutter:update-hooks 'magit-revert-buffer-hook)
