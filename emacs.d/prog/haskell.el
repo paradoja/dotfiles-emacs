@@ -57,7 +57,7 @@
    "C-x n d" 'haskell-narrow-to-defun))
 (use-package lsp-haskell
   :config
-  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+  (setq lsp-haskell-process-path-hie (executable-find "haskell-language-server-wrapper"))
   ;; Comment/uncomment this line to see interactions between lsp client/server.
   ;;(setq lsp-log-io t)
   )
