@@ -6,6 +6,9 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+(general-def 'projectile-mode-map
+  "C-c p f" 'helm-ls-git-ls)
+
 ; Removing Projectile from the mode line
 (setq-default projectile-mode-line "")
 (defun projectile-update-mode-line ())
