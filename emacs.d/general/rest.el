@@ -150,6 +150,8 @@
 (company-quickhelp-mode t)
 
 (cua-selection-mode t) ; Enhanced rectangle edition, global mark mode and easy register use
+(general-def
+  "C-^" 'cua-set-rectangle-mark) ; for silly terminals
 (setq-default cua-delete-selection nil)
 (delete-selection-mode -1)
 (winner-mode 1) ; C-c ←, C-c →
