@@ -4,6 +4,7 @@
  '(org-mode
    org-podcast
 
+   accounting
    ace-jump-mode
    atomic-chrome         ; To connect emacs with browser's text fields
    calendar
