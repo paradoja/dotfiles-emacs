@@ -27,7 +27,9 @@
   (haskell-mode . lsp)
   ;; TODO: clean this, it doesn't really make sense
   (haskell-mode . (lambda ()
-                    (flycheck-add-next-checker 'lsp 'haskell-hlint)))
+                    (flycheck-add-next-checker 'lsp 'haskell-hlint)
+                    (set (make-local-variable 'compile-command)
+                         "stack build --fast")))
   ((interactive-haskell-mode)
    (haskell-mode .
                  (lambda ()
@@ -54,6 +56,7 @@
    "C-k" 'haskell-interactive-mode-clear
    "c"   'haskell-process-cabal)
   (haskell-mode-map
+   "<f6>" 'recompile ; TODO: general prog?
    "C-x n d" 'haskell-narrow-to-defun))
 (use-package lsp-haskell
   :config
