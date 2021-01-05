@@ -29,7 +29,8 @@
   (haskell-mode . (lambda ()
                     (flycheck-add-next-checker 'lsp 'haskell-hlint)
                     (set (make-local-variable 'compile-command)
-                         "stack build --fast")))
+                         "stack build --fast")
+                    (subword-mode)))
   ((interactive-haskell-mode)
    (haskell-mode .
                  (lambda ()
