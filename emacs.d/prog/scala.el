@@ -11,10 +11,10 @@
 (use-package scala-mode
   :mode "\\.s\\(cala\\|bt\\)$")
 
-(use-package lsp-scala
+(use-package lsp-metals
   :after scala-mode
-  :demand t
   :hook (scala-mode . lsp)
+  :config (setq lsp-metals-treeview-show-when-views-received t)
   :init (setq lsp-scala-server-command (executable-find "metals-emacs")))
 
 (use-package sbt-mode
