@@ -42,3 +42,4 @@ flycheck*
 /emacs.d/tools/trello/paradoja.el
 /emacs.d/projects
 /emacs.d/eln-cache/
+/emacs.d/org-roam.db
