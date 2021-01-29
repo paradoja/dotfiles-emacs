@@ -13,7 +13,8 @@
   (org-mode .
             (lambda ()
               (setq-mode-local org-mode
-                               comment-auto-fill-only-comments nil)))) ; should already be loaded
+                               comment-auto-fill-only-comments nil))))
+(use-package org-plus-contrib)
 (use-package ox-gfm) ; Github Flavored Markdown exporter for Org Mode
 
 ;; General conf.
