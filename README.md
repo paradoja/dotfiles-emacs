@@ -1,3 +1,5 @@
+Unsupported, using https://gitlab.com/paradoja-dotfiles/emacs-doom-dotfiles now.
+
 ## ...
 
 ```lisp
